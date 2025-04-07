@@ -1,3 +1,5 @@
+--nao funciona mas se precisar implementar o codigo ta aqui pra ser mudado
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -15,7 +17,7 @@ entity demultiplexador is
 end demultiplexador;
 
 architecture demux_arch of demultiplexador is
-	signal period_display : std_logic_vector (5 downto 0);
+	signal period_display : std_logic_vector (3 downto 0);
 	signal led_activating_counter: std_logic_vector (1 downto 0);
 begin
 	process(clock, reset)
@@ -27,7 +29,7 @@ begin
 		end if;
 	end process;
 	
-	led_activating_counter <= period_display(5 downto 4);
+	led_activating_counter <= period_display(3 downto 2);
 	process (led_activating_counter)
 	begin
 		case led_activating_counter is
