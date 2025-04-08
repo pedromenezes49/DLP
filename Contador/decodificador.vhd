@@ -12,9 +12,7 @@ end decodificador;
 
 architecture decod_arch of decodificador is
 begin
-    process (clock)
-    begin
-        if (clock'event and clock='1') then
+
             case digitI is --tem que ver se o led nessa placa ativa com high ou low
                 when "0000" => digitDisp <= "0000001"; -- "0"     
                 when "0001" => digitDisp <= "1001111"; -- "1" 
@@ -28,6 +26,5 @@ begin
                 when "1001" => digitDisp <= "0000100"; -- "9" 
                 when others => digitDisp <= "1111110"; -- "-"
             end case;
-        end if;
-    end process;
+       
 end decod_arch;
