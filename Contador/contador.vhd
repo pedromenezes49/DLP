@@ -16,7 +16,7 @@ architecture cont_arch of contador is
 	signal digitU, digitD : std_logic_vector(3 downto 0);
 	--signal digitU_display, digitD_display : std_logic_vector(6 downto 0);
 
-	component contador_sinal is
+	component contador_signal is
 	port (
 		clock : in std_logic;
 		reset : in std_logic;
@@ -47,7 +47,7 @@ architecture cont_arch of contador is
 	
 begin
 	
-	Contador0990: contador_sinal port map (clock, reset, enable, digitD, digitU);
+	Contador0990: contador_signal port map (clock, reset, enable, digitD, digitU);
 	Decodificador_Unidade: decodificador port map (clock, digitU, digitUnidade);
 	Decodificador_Dezena: decodificador port map (clock, digitD, digitDezena);
 	--Demux: demultiplexador port map(clock, reset, digitD_display, digitU_display, digit, anodo);
