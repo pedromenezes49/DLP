@@ -1,0 +1,11 @@
+
+State Machine - |hightolow|estado
+Name estado.S7 estado.S6 estado.S5 estado.S4 estado.S3 estado.S2 estado.S1 estado.S0 
+estado.S0 0 0 0 0 0 0 0 0 
+estado.S1 0 0 0 0 0 0 1 1 
+estado.S2 0 0 0 0 0 1 0 1 
+estado.S3 0 0 0 0 1 0 0 1 
+estado.S4 0 0 0 1 0 0 0 1 
+estado.S5 0 0 1 0 0 0 0 1 
+estado.S6 0 1 0 0 0 0 0 1 
+estado.S7 1 0 0 0 0 0 0 1 

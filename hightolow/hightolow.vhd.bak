@@ -1,0 +1,39 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity hightolow is
+	port (
+		clk, reset : in std_logic;
+		y: out std_logic
+);
+end hightolow;
+
+architecture behaviour of hightolow is
+	type STATE_TYPE is (S0, S1);
+	signal estado: STATE_TYPE;
+	variable cont: integer range 0 to 8;
+
+begin
+	process(clk, reset)
+		if (reset = '1') then
+			estado <= S0;
+			cont := 0;
+		elsif (clk'event and clk='1') then
+			cont := cont+1;
+			case estado is
+				when S0 => y <='0';
+				if (cont >= 2) then
+					estado <=S1;
+				end if;
+				when S1 => y <='1';
+				if (cont => 2  and cont <8) then
+					estado <=S1;
+				elsif then 
+					estado <= S0;
+				end if;
+			if (cont = 8) then
+				cont := 0;
+			end if;
+		end if;
+	end process;
+end behaviour;
