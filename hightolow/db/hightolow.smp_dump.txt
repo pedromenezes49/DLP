@@ -1,5 +1,5 @@
 
-State Machine - |hightolow|estado
+State Machine - |hightolow|maquina_estados:MaquinaEstados|estado
 Name estado.S7 estado.S6 estado.S5 estado.S4 estado.S3 estado.S2 estado.S1 estado.S0 
 estado.S0 0 0 0 0 0 0 0 0 
 estado.S1 0 0 0 0 0 0 1 1 

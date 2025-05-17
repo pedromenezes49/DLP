@@ -3,33 +3,50 @@ use ieee.std_logic_1164.all;
 
 entity hightolow is
 	port (
-		clk, reset : in std_logic;
-		y: out std_logic
+		clk, reset, key0: in std_logic;
+		y, led1: out std_logic
 );
 end hightolow;
 
 architecture behaviour of hightolow is
-	type STATE_TYPE is (S0, S1, S2, S3, S4, S5, S6, S7);
-	signal estado: STATE_TYPE;
+	signal slow_clock : std_logic; -- Clock dividido (mais lento)
+	
+	    -- Componente: Divisor de Clock
+    component clock_divider is
+        generic (
+            DIVISOR : integer := 50000000 -- Define a divisão para 1 Hz
+        );
+        port (
+            clk_in  : in std_logic;
+            clk_out : out std_logic
+        );
+    end component;
+	 
+	 component maquina_estados is
+		port (
+			clk, reset, key0: in std_logic;
+			y, led1: out std_logic
+		);
+		end component;
 
 begin
-	process(clk, reset)
-	begin
-		if (reset = '1') then
-			estado <= S0;
-		elsif (clk'event and clk='1') then
-			case estado is
-				when S0 => y <='0';
-							  estado <=S1;
-				when S1 => estado <=S2;
-				when S2 => y <='1';
-							  estado <=S3;
-				when S3 => estado <=S4;
-				when S4 => estado <=S5;
-				when S5 => estado <=S6;
-				when S6 => estado <=S7;
-				when S7 => estado <=S0;
-			end case;
-		end if;
-	end process;
+
+	ClockDivider: clock_divider
+			  generic map (
+					DIVISOR => 50000000 -- Divide o clock para 1 Hz
+			  )
+			  port map (
+					clk_in => clk,
+					clk_out => slow_clock
+			  );
+			  
+	MaquinaEstados: maquina_estados
+		port map(
+			clk => slow_clock,
+			reset => reset,
+			key0 => key0,
+			y => y,
+			led1 => led1
+		);
+
 end behaviour;

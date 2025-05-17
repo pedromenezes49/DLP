@@ -1,0 +1,1346 @@
+$comment
+	File created using the following command:
+		vcd file Contador.msim.vcd -direction
+$end
+$date
+	Tue Apr 08 14:19:20 2025
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module contador_vlg_vec_tst $end
+$var reg 1 ! clock $end
+$var reg 1 " enable $end
+$var reg 1 # reset $end
+$var wire 1 $ digitDezena [6] $end
+$var wire 1 % digitDezena [5] $end
+$var wire 1 & digitDezena [4] $end
+$var wire 1 ' digitDezena [3] $end
+$var wire 1 ( digitDezena [2] $end
+$var wire 1 ) digitDezena [1] $end
+$var wire 1 * digitDezena [0] $end
+$var wire 1 + digitUnidade [6] $end
+$var wire 1 , digitUnidade [5] $end
+$var wire 1 - digitUnidade [4] $end
+$var wire 1 . digitUnidade [3] $end
+$var wire 1 / digitUnidade [2] $end
+$var wire 1 0 digitUnidade [1] $end
+$var wire 1 1 digitUnidade [0] $end
+
+$scope module i1 $end
+$var wire 1 2 gnd $end
+$var wire 1 3 vcc $end
+$var wire 1 4 unknown $end
+$var tri1 1 5 devclrn $end
+$var tri1 1 6 devpor $end
+$var tri1 1 7 devoe $end
+$var wire 1 8 enable~input_o $end
+$var wire 1 9 ~QUARTUS_CREATED_GND~I_combout $end
+$var wire 1 : clock~input_o $end
+$var wire 1 ; clock~inputCLKENA0_outclk $end
+$var wire 1 < Contador0990|contagem[0]~0_combout $end
+$var wire 1 = reset~input_o $end
+$var wire 1 > Contador0990|Add0~14_cout $end
+$var wire 1 ? Contador0990|Add0~9_sumout $end
+$var wire 1 @ Contador0990|Add0~10 $end
+$var wire 1 A Contador0990|Add0~5_sumout $end
+$var wire 1 B Contador0990|Add0~6 $end
+$var wire 1 C Contador0990|Add0~1_sumout $end
+$var wire 1 D Contador0990|Add0~2 $end
+$var wire 1 E Contador0990|Add0~25_sumout $end
+$var wire 1 F Contador0990|Add0~26 $end
+$var wire 1 G Contador0990|Add0~21_sumout $end
+$var wire 1 H Contador0990|contagem[5]~DUPLICATE_q $end
+$var wire 1 I Contador0990|virada~0_combout $end
+$var wire 1 J Contador0990|contagem[4]~DUPLICATE_q $end
+$var wire 1 K Contador0990|virada~1_combout $end
+$var wire 1 L Contador0990|virada~q $end
+$var wire 1 M Contador0990|Add0~22 $end
+$var wire 1 N Contador0990|Add0~17_sumout $end
+$var wire 1 O Contador0990|contagem[6]~DUPLICATE_q $end
+$var wire 1 P Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[0]~6 $end
+$var wire 1 Q Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[0]~7 $end
+$var wire 1 R Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[1]~18 $end
+$var wire 1 S Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[1]~19 $end
+$var wire 1 T Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[2]~14 $end
+$var wire 1 U Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[2]~15 $end
+$var wire 1 V Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[3]~10 $end
+$var wire 1 W Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[3]~11 $end
+$var wire 1 X Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[4]~1_sumout $end
+$var wire 1 Y Contador0990|Mod0|auto_generated|divider|divider|StageOut[24]~7_combout $end
+$var wire 1 Z Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[3]~9_sumout $end
+$var wire 1 [ Contador0990|Mod0|auto_generated|divider|divider|StageOut[24]~8_combout $end
+$var wire 1 \ Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[2]~13_sumout $end
+$var wire 1 ] Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[1]~17_sumout $end
+$var wire 1 ^ Contador0990|Mod0|auto_generated|divider|divider|StageOut[22]~15_combout $end
+$var wire 1 _ Contador0990|Mod0|auto_generated|divider|divider|StageOut[22]~16_combout $end
+$var wire 1 ` Contador0990|Mod0|auto_generated|divider|divider|add_sub_3_result_int[0]~5_sumout $end
+$var wire 1 a Contador0990|contagem[2]~DUPLICATE_q $end
+$var wire 1 b Contador0990|Mod0|auto_generated|divider|divider|op_5~18_cout $end
+$var wire 1 c Contador0990|Mod0|auto_generated|divider|divider|op_5~10 $end
+$var wire 1 d Contador0990|Mod0|auto_generated|divider|divider|op_5~6 $end
+$var wire 1 e Contador0990|Mod0|auto_generated|divider|divider|op_5~26 $end
+$var wire 1 f Contador0990|Mod0|auto_generated|divider|divider|op_5~22 $end
+$var wire 1 g Contador0990|Mod0|auto_generated|divider|divider|op_5~14 $end
+$var wire 1 h Contador0990|Mod0|auto_generated|divider|divider|op_5~1_sumout $end
+$var wire 1 i Contador0990|Mod0|auto_generated|divider|divider|op_5~13_sumout $end
+$var wire 1 j Contador0990|Mod0|auto_generated|divider|divider|StageOut[23]~11_combout $end
+$var wire 1 k Contador0990|Mod0|auto_generated|divider|divider|op_5~21_sumout $end
+$var wire 1 l Contador0990|Mod0|auto_generated|divider|divider|StageOut[23]~12_combout $end
+$var wire 1 m Contador0990|Mod0|auto_generated|divider|divider|StageOut[22]~14_combout $end
+$var wire 1 n Contador0990|Mod0|auto_generated|divider|divider|op_5~25_sumout $end
+$var wire 1 o Contador0990|Mod0|auto_generated|divider|divider|StageOut[21]~0_combout $end
+$var wire 1 p Contador0990|Mod0|auto_generated|divider|divider|op_5~5_sumout $end
+$var wire 1 q Contador0990|Mod0|auto_generated|divider|divider|op_5~9_sumout $end
+$var wire 1 r Contador0990|Mod0|auto_generated|divider|divider|op_6~22_cout $end
+$var wire 1 s Contador0990|Mod0|auto_generated|divider|divider|op_6~14 $end
+$var wire 1 t Contador0990|Mod0|auto_generated|divider|divider|op_6~10 $end
+$var wire 1 u Contador0990|Mod0|auto_generated|divider|divider|op_6~6 $end
+$var wire 1 v Contador0990|Mod0|auto_generated|divider|divider|op_6~30 $end
+$var wire 1 w Contador0990|Mod0|auto_generated|divider|divider|op_6~26 $end
+$var wire 1 x Contador0990|Mod0|auto_generated|divider|divider|op_6~18 $end
+$var wire 1 y Contador0990|Mod0|auto_generated|divider|divider|op_6~1_sumout $end
+$var wire 1 z Contador0990|Mod0|auto_generated|divider|divider|op_6~17_sumout $end
+$var wire 1 { Contador0990|Mod0|auto_generated|divider|divider|StageOut[32]~9_combout $end
+$var wire 1 | Contador0990|Mod0|auto_generated|divider|divider|StageOut[32]~10_combout $end
+$var wire 1 } Contador0990|Mod0|auto_generated|divider|divider|StageOut[31]~13_combout $end
+$var wire 1 ~ Contador0990|Mod0|auto_generated|divider|divider|op_6~25_sumout $end
+$var wire 1 !! Contador0990|Mod0|auto_generated|divider|divider|op_6~29_sumout $end
+$var wire 1 "! Contador0990|Mod0|auto_generated|divider|divider|StageOut[30]~17_combout $end
+$var wire 1 #! Contador0990|Mod0|auto_generated|divider|divider|StageOut[30]~18_combout $end
+$var wire 1 $! Contador0990|Mod0|auto_generated|divider|divider|StageOut[29]~1_combout $end
+$var wire 1 %! Contador0990|Mod0|auto_generated|divider|divider|op_6~5_sumout $end
+$var wire 1 &! Contador0990|Mod0|auto_generated|divider|divider|StageOut[28]~3_combout $end
+$var wire 1 '! Contador0990|Mod0|auto_generated|divider|divider|op_6~9_sumout $end
+$var wire 1 (! Contador0990|Mod0|auto_generated|divider|divider|op_6~13_sumout $end
+$var wire 1 )! Contador0990|Mod0|auto_generated|divider|divider|op_7~26_cout $end
+$var wire 1 *! Contador0990|Mod0|auto_generated|divider|divider|op_7~14 $end
+$var wire 1 +! Contador0990|Mod0|auto_generated|divider|divider|op_7~18 $end
+$var wire 1 ,! Contador0990|Mod0|auto_generated|divider|divider|op_7~10 $end
+$var wire 1 -! Contador0990|Mod0|auto_generated|divider|divider|op_7~2 $end
+$var wire 1 .! Contador0990|Mod0|auto_generated|divider|divider|op_7~34_cout $end
+$var wire 1 /! Contador0990|Mod0|auto_generated|divider|divider|op_7~30_cout $end
+$var wire 1 0! Contador0990|Mod0|auto_generated|divider|divider|op_7~22_cout $end
+$var wire 1 1! Contador0990|Mod0|auto_generated|divider|divider|op_7~5_sumout $end
+$var wire 1 2! Contador0990|Mod0|auto_generated|divider|divider|op_7~1_sumout $end
+$var wire 1 3! Contador0990|Mod0|auto_generated|divider|divider|StageOut[45]~2_combout $end
+$var wire 1 4! Contador0990|Mod0|auto_generated|divider|divider|op_7~13_sumout $end
+$var wire 1 5! Contador0990|Mod0|auto_generated|divider|divider|StageOut[42]~5_combout $end
+$var wire 1 6! Contador0990|Mod0|auto_generated|divider|divider|op_7~9_sumout $end
+$var wire 1 7! Contador0990|Mod0|auto_generated|divider|divider|StageOut[44]~4_combout $end
+$var wire 1 8! Contador0990|Mod0|auto_generated|divider|divider|op_7~17_sumout $end
+$var wire 1 9! Contador0990|Mod0|auto_generated|divider|divider|StageOut[43]~6_combout $end
+$var wire 1 :! Decodificador_Unidade|digitDisp[0]~0_combout $end
+$var wire 1 ;! Decodificador_Unidade|digitDisp[1]~1_combout $end
+$var wire 1 <! Decodificador_Unidade|digitDisp[2]~2_combout $end
+$var wire 1 =! Decodificador_Unidade|digitDisp[3]~3_combout $end
+$var wire 1 >! Decodificador_Unidade|digitDisp[4]~4_combout $end
+$var wire 1 ?! Decodificador_Unidade|digitDisp[5]~5_combout $end
+$var wire 1 @! Decodificador_Unidade|digitDisp[6]~6_combout $end
+$var wire 1 A! Contador0990|contagem[3]~DUPLICATE_q $end
+$var wire 1 B! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[0]~18 $end
+$var wire 1 C! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[0]~19 $end
+$var wire 1 D! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[1]~14 $end
+$var wire 1 E! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[1]~15 $end
+$var wire 1 F! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[2]~10 $end
+$var wire 1 G! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[2]~11 $end
+$var wire 1 H! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[3]~6 $end
+$var wire 1 I! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[3]~7 $end
+$var wire 1 J! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[4]~1_sumout $end
+$var wire 1 K! Contador0990|dezena[3]~0_combout $end
+$var wire 1 L! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[2]~9_sumout $end
+$var wire 1 M! Contador0990|Div0|auto_generated|divider|divider|StageOut[17]~2_combout $end
+$var wire 1 N! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[3]~5_sumout $end
+$var wire 1 O! Contador0990|Div0|auto_generated|divider|divider|StageOut[18]~0_combout $end
+$var wire 1 P! Contador0990|Div0|auto_generated|divider|divider|StageOut[18]~1_combout $end
+$var wire 1 Q! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[1]~13_sumout $end
+$var wire 1 R! Contador0990|Div0|auto_generated|divider|divider|StageOut[16]~5_combout $end
+$var wire 1 S! Contador0990|Div0|auto_generated|divider|divider|StageOut[16]~6_combout $end
+$var wire 1 T! Contador0990|Div0|auto_generated|divider|divider|add_sub_3_result_int[0]~17_sumout $end
+$var wire 1 U! Contador0990|Div0|auto_generated|divider|divider|op_5~26_cout $end
+$var wire 1 V! Contador0990|Div0|auto_generated|divider|divider|op_5~22 $end
+$var wire 1 W! Contador0990|Div0|auto_generated|divider|divider|op_5~18 $end
+$var wire 1 X! Contador0990|Div0|auto_generated|divider|divider|op_5~14 $end
+$var wire 1 Y! Contador0990|Div0|auto_generated|divider|divider|op_5~10 $end
+$var wire 1 Z! Contador0990|Div0|auto_generated|divider|divider|op_5~6_cout $end
+$var wire 1 [! Contador0990|Div0|auto_generated|divider|divider|op_5~1_sumout $end
+$var wire 1 \! Contador0990|Div0|auto_generated|divider|divider|op_5~9_sumout $end
+$var wire 1 ]! Contador0990|Div0|auto_generated|divider|divider|StageOut[17]~3_combout $end
+$var wire 1 ^! Contador0990|Div0|auto_generated|divider|divider|StageOut[16]~7_combout $end
+$var wire 1 _! Contador0990|Div0|auto_generated|divider|divider|op_5~13_sumout $end
+$var wire 1 `! Contador0990|Div0|auto_generated|divider|divider|StageOut[15]~9_combout $end
+$var wire 1 a! Contador0990|Div0|auto_generated|divider|divider|op_5~17_sumout $end
+$var wire 1 b! Contador0990|Div0|auto_generated|divider|divider|op_5~21_sumout $end
+$var wire 1 c! Contador0990|Div0|auto_generated|divider|divider|op_6~26_cout $end
+$var wire 1 d! Contador0990|Div0|auto_generated|divider|divider|op_6~22 $end
+$var wire 1 e! Contador0990|Div0|auto_generated|divider|divider|op_6~18 $end
+$var wire 1 f! Contador0990|Div0|auto_generated|divider|divider|op_6~14 $end
+$var wire 1 g! Contador0990|Div0|auto_generated|divider|divider|op_6~10 $end
+$var wire 1 h! Contador0990|Div0|auto_generated|divider|divider|op_6~6_cout $end
+$var wire 1 i! Contador0990|Div0|auto_generated|divider|divider|op_6~1_sumout $end
+$var wire 1 j! Contador0990|dezena[1]~2_combout $end
+$var wire 1 k! Contador0990|Div0|auto_generated|divider|divider|StageOut[22]~4_combout $end
+$var wire 1 l! Contador0990|Div0|auto_generated|divider|divider|op_6~9_sumout $end
+$var wire 1 m! Contador0990|Div0|auto_generated|divider|divider|StageOut[22]~8_combout $end
+$var wire 1 n! Contador0990|Div0|auto_generated|divider|divider|StageOut[21]~10_combout $end
+$var wire 1 o! Contador0990|Div0|auto_generated|divider|divider|op_6~13_sumout $end
+$var wire 1 p! Contador0990|Div0|auto_generated|divider|divider|StageOut[20]~11_combout $end
+$var wire 1 q! Contador0990|Div0|auto_generated|divider|divider|op_6~17_sumout $end
+$var wire 1 r! Contador0990|Div0|auto_generated|divider|divider|op_6~21_sumout $end
+$var wire 1 s! Contador0990|Div0|auto_generated|divider|divider|op_7~26_cout $end
+$var wire 1 t! Contador0990|Div0|auto_generated|divider|divider|op_7~22_cout $end
+$var wire 1 u! Contador0990|Div0|auto_generated|divider|divider|op_7~18_cout $end
+$var wire 1 v! Contador0990|Div0|auto_generated|divider|divider|op_7~14_cout $end
+$var wire 1 w! Contador0990|Div0|auto_generated|divider|divider|op_7~10_cout $end
+$var wire 1 x! Contador0990|Div0|auto_generated|divider|divider|op_7~6_cout $end
+$var wire 1 y! Contador0990|Div0|auto_generated|divider|divider|op_7~1_sumout $end
+$var wire 1 z! Contador0990|dezena[0]~3_combout $end
+$var wire 1 {! Contador0990|dezena[2]~1_combout $end
+$var wire 1 |! Decodificador_Dezena|digitDisp[0]~0_combout $end
+$var wire 1 }! Decodificador_Dezena|digitDisp[1]~1_combout $end
+$var wire 1 ~! Decodificador_Dezena|digitDisp[2]~2_combout $end
+$var wire 1 !" Decodificador_Dezena|digitDisp[3]~3_combout $end
+$var wire 1 "" Decodificador_Dezena|digitDisp[4]~4_combout $end
+$var wire 1 #" Decodificador_Dezena|digitDisp[5]~5_combout $end
+$var wire 1 $" Decodificador_Dezena|digitDisp[6]~6_combout $end
+$var wire 1 %" Contador0990|unidade [31] $end
+$var wire 1 &" Contador0990|unidade [30] $end
+$var wire 1 '" Contador0990|unidade [29] $end
+$var wire 1 (" Contador0990|unidade [28] $end
+$var wire 1 )" Contador0990|unidade [27] $end
+$var wire 1 *" Contador0990|unidade [26] $end
+$var wire 1 +" Contador0990|unidade [25] $end
+$var wire 1 ," Contador0990|unidade [24] $end
+$var wire 1 -" Contador0990|unidade [23] $end
+$var wire 1 ." Contador0990|unidade [22] $end
+$var wire 1 /" Contador0990|unidade [21] $end
+$var wire 1 0" Contador0990|unidade [20] $end
+$var wire 1 1" Contador0990|unidade [19] $end
+$var wire 1 2" Contador0990|unidade [18] $end
+$var wire 1 3" Contador0990|unidade [17] $end
+$var wire 1 4" Contador0990|unidade [16] $end
+$var wire 1 5" Contador0990|unidade [15] $end
+$var wire 1 6" Contador0990|unidade [14] $end
+$var wire 1 7" Contador0990|unidade [13] $end
+$var wire 1 8" Contador0990|unidade [12] $end
+$var wire 1 9" Contador0990|unidade [11] $end
+$var wire 1 :" Contador0990|unidade [10] $end
+$var wire 1 ;" Contador0990|unidade [9] $end
+$var wire 1 <" Contador0990|unidade [8] $end
+$var wire 1 =" Contador0990|unidade [7] $end
+$var wire 1 >" Contador0990|unidade [6] $end
+$var wire 1 ?" Contador0990|unidade [5] $end
+$var wire 1 @" Contador0990|unidade [4] $end
+$var wire 1 A" Contador0990|unidade [3] $end
+$var wire 1 B" Contador0990|unidade [2] $end
+$var wire 1 C" Contador0990|unidade [1] $end
+$var wire 1 D" Contador0990|unidade [0] $end
+$var wire 1 E" Contador0990|dezena [31] $end
+$var wire 1 F" Contador0990|dezena [30] $end
+$var wire 1 G" Contador0990|dezena [29] $end
+$var wire 1 H" Contador0990|dezena [28] $end
+$var wire 1 I" Contador0990|dezena [27] $end
+$var wire 1 J" Contador0990|dezena [26] $end
+$var wire 1 K" Contador0990|dezena [25] $end
+$var wire 1 L" Contador0990|dezena [24] $end
+$var wire 1 M" Contador0990|dezena [23] $end
+$var wire 1 N" Contador0990|dezena [22] $end
+$var wire 1 O" Contador0990|dezena [21] $end
+$var wire 1 P" Contador0990|dezena [20] $end
+$var wire 1 Q" Contador0990|dezena [19] $end
+$var wire 1 R" Contador0990|dezena [18] $end
+$var wire 1 S" Contador0990|dezena [17] $end
+$var wire 1 T" Contador0990|dezena [16] $end
+$var wire 1 U" Contador0990|dezena [15] $end
+$var wire 1 V" Contador0990|dezena [14] $end
+$var wire 1 W" Contador0990|dezena [13] $end
+$var wire 1 X" Contador0990|dezena [12] $end
+$var wire 1 Y" Contador0990|dezena [11] $end
+$var wire 1 Z" Contador0990|dezena [10] $end
+$var wire 1 [" Contador0990|dezena [9] $end
+$var wire 1 \" Contador0990|dezena [8] $end
+$var wire 1 ]" Contador0990|dezena [7] $end
+$var wire 1 ^" Contador0990|dezena [6] $end
+$var wire 1 _" Contador0990|dezena [5] $end
+$var wire 1 `" Contador0990|dezena [4] $end
+$var wire 1 a" Contador0990|dezena [3] $end
+$var wire 1 b" Contador0990|dezena [2] $end
+$var wire 1 c" Contador0990|dezena [1] $end
+$var wire 1 d" Contador0990|dezena [0] $end
+$var wire 1 e" Contador0990|contagem [6] $end
+$var wire 1 f" Contador0990|contagem [5] $end
+$var wire 1 g" Contador0990|contagem [4] $end
+$var wire 1 h" Contador0990|contagem [3] $end
+$var wire 1 i" Contador0990|contagem [2] $end
+$var wire 1 j" Contador0990|contagem [1] $end
+$var wire 1 k" Contador0990|contagem [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+0#
+1*
+0)
+0(
+0'
+0&
+0%
+0$
+11
+00
+0/
+0.
+0-
+0,
+0+
+02
+13
+x4
+15
+16
+17
+18
+09
+0:
+0;
+1<
+0=
+0>
+0?
+0@
+0A
+0B
+0C
+0D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+0P
+1Q
+0R
+0S
+0T
+0U
+0V
+0W
+1X
+0Y
+0Z
+0[
+1\
+1]
+0^
+0_
+0`
+0a
+1b
+1c
+0d
+0e
+0f
+0g
+1h
+1i
+0j
+0k
+0l
+0m
+1n
+0o
+1p
+0q
+1r
+1s
+0t
+0u
+0v
+0w
+0x
+1y
+1z
+0{
+0|
+0}
+1~
+0!!
+0"!
+0#!
+0$!
+1%!
+0&!
+1'!
+0(!
+1)!
+1*!
+0+!
+0,!
+0-!
+0.!
+0/!
+00!
+11!
+02!
+03!
+04!
+05!
+16!
+07!
+18!
+09!
+1:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+0A!
+0B!
+1C!
+0D!
+0E!
+0F!
+0G!
+0H!
+0I!
+1J!
+0K!
+1L!
+0M!
+0N!
+0O!
+0P!
+1Q!
+0R!
+0S!
+0T!
+1U!
+1V!
+0W!
+0X!
+0Y!
+0Z!
+1[!
+0\!
+0]!
+0^!
+1_!
+0`!
+1a!
+0b!
+1c!
+1d!
+0e!
+0f!
+0g!
+0h!
+1i!
+0j!
+0k!
+0l!
+0m!
+0n!
+1o!
+0p!
+1q!
+0r!
+1s!
+1t!
+0u!
+0v!
+0w!
+0x!
+1y!
+0z!
+0{!
+1|!
+0}!
+0~!
+0!"
+0""
+0#"
+0$"
+0D"
+0C"
+0B"
+0A"
+z@"
+z?"
+z>"
+z="
+z<"
+z;"
+z:"
+z9"
+z8"
+z7"
+z6"
+z5"
+z4"
+z3"
+z2"
+z1"
+z0"
+z/"
+z."
+z-"
+z,"
+z+"
+z*"
+z)"
+z("
+z'"
+z&"
+z%"
+0d"
+0c"
+0b"
+0a"
+z`"
+z_"
+z^"
+z]"
+z\"
+z["
+zZ"
+zY"
+zX"
+zW"
+zV"
+zU"
+zT"
+zS"
+zR"
+zQ"
+zP"
+zO"
+zN"
+zM"
+zL"
+zK"
+zJ"
+zI"
+zH"
+zG"
+zF"
+zE"
+0k"
+0j"
+0i"
+0h"
+0g"
+0f"
+0e"
+$end
+#5000
+1!
+1:
+1;
+#10000
+0!
+0:
+0;
+#15000
+1!
+1:
+1;
+#20000
+0!
+0:
+0;
+#25000
+1!
+1:
+1;
+#30000
+0!
+0:
+0;
+#35000
+1!
+1:
+1;
+#40000
+0!
+0:
+0;
+#45000
+1!
+1:
+1;
+#50000
+0!
+0:
+0;
+#55000
+1!
+1:
+1;
+#60000
+0!
+0:
+0;
+#65000
+1!
+1:
+1;
+#70000
+0!
+0:
+0;
+#75000
+1!
+1:
+1;
+#80000
+0!
+0:
+0;
+#85000
+1!
+1:
+1;
+#90000
+0!
+0:
+0;
+#95000
+1!
+1:
+1;
+#100000
+0!
+0:
+0;
+#105000
+1!
+1:
+1;
+#110000
+0!
+0:
+0;
+#115000
+1!
+1:
+1;
+#120000
+0!
+0:
+0;
+#125000
+1!
+1:
+1;
+#130000
+0!
+0:
+0;
+#135000
+1!
+1:
+1;
+#140000
+0!
+0:
+0;
+#145000
+1!
+1:
+1;
+#150000
+0!
+0:
+0;
+#155000
+1!
+1:
+1;
+#160000
+0!
+0:
+0;
+#165000
+1!
+1:
+1;
+#170000
+0!
+0:
+0;
+#175000
+1!
+1:
+1;
+#180000
+0!
+0:
+0;
+#185000
+1!
+1:
+1;
+#190000
+0!
+0:
+0;
+#195000
+1!
+1:
+1;
+#200000
+0!
+0:
+0;
+#205000
+1!
+1:
+1;
+#210000
+0!
+0:
+0;
+#215000
+1!
+1:
+1;
+#220000
+0!
+0:
+0;
+#225000
+1!
+1:
+1;
+#230000
+0!
+0:
+0;
+#235000
+1!
+1:
+1;
+#240000
+0!
+0:
+0;
+#245000
+1!
+1:
+1;
+#250000
+0!
+0:
+0;
+#255000
+1!
+1:
+1;
+#260000
+0!
+0:
+0;
+#265000
+1!
+1:
+1;
+#270000
+0!
+0:
+0;
+#275000
+1!
+1:
+1;
+#280000
+0!
+0:
+0;
+#285000
+1!
+1:
+1;
+#290000
+0!
+0:
+0;
+#295000
+1!
+1:
+1;
+#300000
+0!
+0:
+0;
+#305000
+1!
+1:
+1;
+#310000
+0!
+0:
+0;
+#315000
+1!
+1:
+1;
+#320000
+0!
+0:
+0;
+#325000
+1!
+1:
+1;
+#330000
+0!
+0:
+0;
+#335000
+1!
+1:
+1;
+#340000
+0!
+0:
+0;
+#345000
+1!
+1:
+1;
+#350000
+0!
+0:
+0;
+#355000
+1!
+1:
+1;
+#360000
+0!
+0:
+0;
+#365000
+1!
+1:
+1;
+#370000
+0!
+0:
+0;
+#375000
+1!
+1:
+1;
+#380000
+0!
+0:
+0;
+#385000
+1!
+1:
+1;
+#390000
+0!
+0:
+0;
+#395000
+1!
+1:
+1;
+#400000
+0!
+0:
+0;
+#405000
+1!
+1:
+1;
+#410000
+0!
+0:
+0;
+#415000
+1!
+1:
+1;
+#420000
+0!
+0:
+0;
+#425000
+1!
+1:
+1;
+#430000
+0!
+0:
+0;
+#435000
+1!
+1:
+1;
+#440000
+0!
+0:
+0;
+#445000
+1!
+1:
+1;
+#450000
+0!
+0:
+0;
+#455000
+1!
+1:
+1;
+#460000
+0!
+0:
+0;
+#465000
+1!
+1:
+1;
+#470000
+0!
+0:
+0;
+#475000
+1!
+1:
+1;
+#480000
+0!
+0:
+0;
+#485000
+1!
+1:
+1;
+#490000
+0!
+0:
+0;
+#495000
+1!
+1:
+1;
+#500000
+0!
+0:
+0;
+#505000
+1!
+1:
+1;
+#510000
+0!
+0:
+0;
+#515000
+1!
+1:
+1;
+#520000
+0!
+0:
+0;
+#525000
+1!
+1:
+1;
+#530000
+0!
+0:
+0;
+#535000
+1!
+1:
+1;
+#540000
+0!
+0:
+0;
+#545000
+1!
+1:
+1;
+#550000
+0!
+0:
+0;
+#555000
+1!
+1:
+1;
+#560000
+0!
+0:
+0;
+#565000
+1!
+1:
+1;
+#570000
+0!
+0:
+0;
+#575000
+1!
+1:
+1;
+#580000
+0!
+0:
+0;
+#585000
+1!
+1:
+1;
+#590000
+0!
+0:
+0;
+#595000
+1!
+1:
+1;
+#600000
+0!
+0:
+0;
+#605000
+1!
+1:
+1;
+#610000
+0!
+0:
+0;
+#615000
+1!
+1:
+1;
+#620000
+0!
+0:
+0;
+#625000
+1!
+1:
+1;
+#630000
+0!
+0:
+0;
+#635000
+1!
+1:
+1;
+#640000
+0!
+0:
+0;
+#645000
+1!
+1:
+1;
+#650000
+0!
+0:
+0;
+#655000
+1!
+1:
+1;
+#660000
+0!
+0:
+0;
+#665000
+1!
+1:
+1;
+#670000
+0!
+0:
+0;
+#675000
+1!
+1:
+1;
+#680000
+0!
+0:
+0;
+#685000
+1!
+1:
+1;
+#690000
+0!
+0:
+0;
+#695000
+1!
+1:
+1;
+#700000
+0!
+0:
+0;
+#705000
+1!
+1:
+1;
+#710000
+0!
+0:
+0;
+#715000
+1!
+1:
+1;
+#720000
+0!
+0:
+0;
+#725000
+1!
+1:
+1;
+#730000
+0!
+0:
+0;
+#735000
+1!
+1:
+1;
+#740000
+0!
+0:
+0;
+#745000
+1!
+1:
+1;
+#750000
+0!
+0:
+0;
+#755000
+1!
+1:
+1;
+#760000
+0!
+0:
+0;
+#765000
+1!
+1:
+1;
+#770000
+0!
+0:
+0;
+#775000
+1!
+1:
+1;
+#780000
+0!
+0:
+0;
+#785000
+1!
+1:
+1;
+#790000
+0!
+0:
+0;
+#795000
+1!
+1:
+1;
+#800000
+0!
+0:
+0;
+#805000
+1!
+1:
+1;
+#810000
+0!
+0:
+0;
+#815000
+1!
+1:
+1;
+#820000
+0!
+0:
+0;
+#825000
+1!
+1:
+1;
+#830000
+0!
+0:
+0;
+#835000
+1!
+1:
+1;
+#840000
+0!
+0:
+0;
+#845000
+1!
+1:
+1;
+#850000
+0!
+0:
+0;
+#855000
+1!
+1:
+1;
+#860000
+0!
+0:
+0;
+#865000
+1!
+1:
+1;
+#870000
+0!
+0:
+0;
+#875000
+1!
+1:
+1;
+#880000
+0!
+0:
+0;
+#885000
+1!
+1:
+1;
+#890000
+0!
+0:
+0;
+#895000
+1!
+1:
+1;
+#900000
+0!
+0:
+0;
+#905000
+1!
+1:
+1;
+#910000
+0!
+0:
+0;
+#915000
+1!
+1:
+1;
+#920000
+0!
+0:
+0;
+#925000
+1!
+1:
+1;
+#930000
+0!
+0:
+0;
+#935000
+1!
+1:
+1;
+#940000
+0!
+0:
+0;
+#945000
+1!
+1:
+1;
+#950000
+0!
+0:
+0;
+#955000
+1!
+1:
+1;
+#960000
+0!
+0:
+0;
+#965000
+1!
+1:
+1;
+#970000
+0!
+0:
+0;
+#975000
+1!
+1:
+1;
+#980000
+0!
+0:
+0;
+#985000
+1!
+1:
+1;
+#990000
+0!
+0:
+0;
+#995000
+1!
+1:
+1;
+#1000000

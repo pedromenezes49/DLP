@@ -8,6 +8,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "key0",
+					"strict" : false
+				},
+				{
 					"name" : "reset",
 					"strict" : false
 				},

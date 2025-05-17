@@ -1,0 +1,152 @@
+|Contador
+clock => clock_divider:ClockDivider.clk_in
+digitUnidade[0] <= decodificador:Decodificador_Unidade.digitDisp[0]
+digitUnidade[1] <= decodificador:Decodificador_Unidade.digitDisp[1]
+digitUnidade[2] <= decodificador:Decodificador_Unidade.digitDisp[2]
+digitUnidade[3] <= decodificador:Decodificador_Unidade.digitDisp[3]
+digitUnidade[4] <= decodificador:Decodificador_Unidade.digitDisp[4]
+digitUnidade[5] <= decodificador:Decodificador_Unidade.digitDisp[5]
+digitUnidade[6] <= decodificador:Decodificador_Unidade.digitDisp[6]
+digitDezena[0] <= decodificador:Decodificador_Dezena.digitDisp[0]
+digitDezena[1] <= decodificador:Decodificador_Dezena.digitDisp[1]
+digitDezena[2] <= decodificador:Decodificador_Dezena.digitDisp[2]
+digitDezena[3] <= decodificador:Decodificador_Dezena.digitDisp[3]
+digitDezena[4] <= decodificador:Decodificador_Dezena.digitDisp[4]
+digitDezena[5] <= decodificador:Decodificador_Dezena.digitDisp[5]
+digitDezena[6] <= decodificador:Decodificador_Dezena.digitDisp[6]
+
+
+|Contador|clock_divider:ClockDivider
+clk_in => temp_clk.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_out <= temp_clk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador|contador_signal:Contador0990
+clock => unidade[0].CLK
+clock => unidade[1].CLK
+clock => unidade[2].CLK
+clock => unidade[3].CLK
+clock => dezena[0].CLK
+clock => dezena[1].CLK
+clock => dezena[2].CLK
+clock => dezena[3].CLK
+clock => virada.CLK
+clock => contagem[0].CLK
+clock => contagem[1].CLK
+clock => contagem[2].CLK
+clock => contagem[3].CLK
+clock => contagem[4].CLK
+clock => contagem[5].CLK
+clock => contagem[6].CLK
+digitD[0] <= dezena[0].DB_MAX_OUTPUT_PORT_TYPE
+digitD[1] <= dezena[1].DB_MAX_OUTPUT_PORT_TYPE
+digitD[2] <= dezena[2].DB_MAX_OUTPUT_PORT_TYPE
+digitD[3] <= dezena[3].DB_MAX_OUTPUT_PORT_TYPE
+digitU[0] <= unidade[0].DB_MAX_OUTPUT_PORT_TYPE
+digitU[1] <= unidade[1].DB_MAX_OUTPUT_PORT_TYPE
+digitU[2] <= unidade[2].DB_MAX_OUTPUT_PORT_TYPE
+digitU[3] <= unidade[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador|decodificador:Decodificador_Unidade
+digitI[0] => Mux0.IN19
+digitI[0] => Mux1.IN19
+digitI[0] => Mux2.IN19
+digitI[0] => Mux3.IN19
+digitI[0] => Mux4.IN19
+digitI[0] => Mux5.IN19
+digitI[0] => Mux6.IN19
+digitI[1] => Mux0.IN18
+digitI[1] => Mux1.IN18
+digitI[1] => Mux2.IN18
+digitI[1] => Mux3.IN18
+digitI[1] => Mux4.IN18
+digitI[1] => Mux5.IN18
+digitI[1] => Mux6.IN18
+digitI[2] => Mux0.IN17
+digitI[2] => Mux1.IN17
+digitI[2] => Mux2.IN17
+digitI[2] => Mux3.IN17
+digitI[2] => Mux4.IN17
+digitI[2] => Mux5.IN17
+digitI[2] => Mux6.IN17
+digitI[3] => Mux0.IN16
+digitI[3] => Mux1.IN16
+digitI[3] => Mux2.IN16
+digitI[3] => Mux3.IN16
+digitI[3] => Mux4.IN16
+digitI[3] => Mux5.IN16
+digitI[3] => Mux6.IN16
+digitDisp[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador|decodificador:Decodificador_Dezena
+digitI[0] => Mux0.IN19
+digitI[0] => Mux1.IN19
+digitI[0] => Mux2.IN19
+digitI[0] => Mux3.IN19
+digitI[0] => Mux4.IN19
+digitI[0] => Mux5.IN19
+digitI[0] => Mux6.IN19
+digitI[1] => Mux0.IN18
+digitI[1] => Mux1.IN18
+digitI[1] => Mux2.IN18
+digitI[1] => Mux3.IN18
+digitI[1] => Mux4.IN18
+digitI[1] => Mux5.IN18
+digitI[1] => Mux6.IN18
+digitI[2] => Mux0.IN17
+digitI[2] => Mux1.IN17
+digitI[2] => Mux2.IN17
+digitI[2] => Mux3.IN17
+digitI[2] => Mux4.IN17
+digitI[2] => Mux5.IN17
+digitI[2] => Mux6.IN17
+digitI[3] => Mux0.IN16
+digitI[3] => Mux1.IN16
+digitI[3] => Mux2.IN16
+digitI[3] => Mux3.IN16
+digitI[3] => Mux4.IN16
+digitI[3] => Mux5.IN16
+digitI[3] => Mux6.IN16
+digitDisp[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+digitDisp[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
