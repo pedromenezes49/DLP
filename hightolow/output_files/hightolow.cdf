@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4) Path("C:/Users/gabri/OneDrive/Documentos/DLP-main/DLP-main/hightolow/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
+		Device PartName(5CEBA4) Path("C:/Users/gabriel.dunkel.N305-3033103/Documents/Faculdade/DLP/DLP/hightolow/output_files/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
 
 ChainEnd;
 

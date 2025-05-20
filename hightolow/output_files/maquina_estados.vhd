@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 
 entity maquina_estados is
 	port (
-		clk, reset, key0: in std_logic;
-		y, led1: out std_logic
+		clk, reset: in std_logic;
+		y: out std_logic
 );
 end maquina_estados;
 
@@ -18,9 +18,9 @@ begin
 	
 	begin
 	
-		led1 <= key0;
+--		led1 <= key0;
 
-		if (reset = '1') then
+		if (reset = '0') then
 			estado <= S0;
 		elsif (clk'event and clk='1') then
 			case estado is

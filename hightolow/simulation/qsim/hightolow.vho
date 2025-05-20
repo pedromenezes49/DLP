@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "05/17/2025 17:11:46"
+-- DATE "05/19/2025 18:08:11"
 
 -- 
 -- Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -45,7 +45,7 @@ ENTITY 	hightolow IS
 END hightolow;
 
 -- Design Ports Information
--- y	=>  Location: PIN_U13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- y	=>  Location: PIN_AA2,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- reset	=>  Location: PIN_P22,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- clk	=>  Location: PIN_M9,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
@@ -67,28 +67,30 @@ SIGNAL \~QUARTUS_CREATED_GND~I_combout\ : std_logic;
 SIGNAL \clk~input_o\ : std_logic;
 SIGNAL \clk~inputCLKENA0_outclk\ : std_logic;
 SIGNAL \reset~input_o\ : std_logic;
-SIGNAL \estado.S0~DUPLICATE_q\ : std_logic;
-SIGNAL \estado.S1~0_combout\ : std_logic;
-SIGNAL \estado.S1~q\ : std_logic;
-SIGNAL \estado.S2~q\ : std_logic;
-SIGNAL \estado.S3~feeder_combout\ : std_logic;
-SIGNAL \estado.S3~q\ : std_logic;
-SIGNAL \estado.S4~q\ : std_logic;
-SIGNAL \estado.S5~q\ : std_logic;
-SIGNAL \estado.S6~feeder_combout\ : std_logic;
-SIGNAL \estado.S6~q\ : std_logic;
-SIGNAL \estado.S7~q\ : std_logic;
-SIGNAL \estado.S0~0_combout\ : std_logic;
-SIGNAL \estado.S0~q\ : std_logic;
-SIGNAL \y~0_combout\ : std_logic;
-SIGNAL \y~reg0_q\ : std_logic;
-SIGNAL \ALT_INV_estado.S2~q\ : std_logic;
-SIGNAL \ALT_INV_y~reg0_q\ : std_logic;
-SIGNAL \ALT_INV_estado.S0~q\ : std_logic;
-SIGNAL \ALT_INV_estado.S7~q\ : std_logic;
-SIGNAL \ALT_INV_estado.S5~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S3~feeder_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S3~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S4~feeder_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S4~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S5~feeder_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S5~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S6~feeder_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S6~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S7~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S0~0_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S0~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S1~0_combout\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S1~q\ : std_logic;
+SIGNAL \MaquinaEstados|estado.S2~q\ : std_logic;
+SIGNAL \MaquinaEstados|y~0_combout\ : std_logic;
+SIGNAL \MaquinaEstados|y~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S0~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S7~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S5~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S4~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S3~q\ : std_logic;
 SIGNAL \ALT_INV_reset~input_o\ : std_logic;
-SIGNAL \ALT_INV_estado.S0~DUPLICATE_q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_y~q\ : std_logic;
+SIGNAL \MaquinaEstados|ALT_INV_estado.S2~q\ : std_logic;
 
 BEGIN
 
@@ -98,15 +100,16 @@ y <= ww_y;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\ALT_INV_estado.S2~q\ <= NOT \estado.S2~q\;
-\ALT_INV_y~reg0_q\ <= NOT \y~reg0_q\;
-\ALT_INV_estado.S0~q\ <= NOT \estado.S0~q\;
-\ALT_INV_estado.S7~q\ <= NOT \estado.S7~q\;
-\ALT_INV_estado.S5~q\ <= NOT \estado.S5~q\;
+\MaquinaEstados|ALT_INV_estado.S0~q\ <= NOT \MaquinaEstados|estado.S0~q\;
+\MaquinaEstados|ALT_INV_estado.S7~q\ <= NOT \MaquinaEstados|estado.S7~q\;
+\MaquinaEstados|ALT_INV_estado.S5~q\ <= NOT \MaquinaEstados|estado.S5~q\;
+\MaquinaEstados|ALT_INV_estado.S4~q\ <= NOT \MaquinaEstados|estado.S4~q\;
+\MaquinaEstados|ALT_INV_estado.S3~q\ <= NOT \MaquinaEstados|estado.S3~q\;
 \ALT_INV_reset~input_o\ <= NOT \reset~input_o\;
-\ALT_INV_estado.S0~DUPLICATE_q\ <= NOT \estado.S0~DUPLICATE_q\;
+\MaquinaEstados|ALT_INV_y~q\ <= NOT \MaquinaEstados|y~q\;
+\MaquinaEstados|ALT_INV_estado.S2~q\ <= NOT \MaquinaEstados|estado.S2~q\;
 
--- Location: IOOBUF_X33_Y0_N42
+-- Location: IOOBUF_X0_Y18_N79
 \y~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -115,7 +118,7 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \y~reg0_q\,
+	i => \MaquinaEstados|y~q\,
 	devoe => ww_devoe,
 	o => ww_y);
 
@@ -155,71 +158,10 @@ PORT MAP (
 	i => ww_reset,
 	o => \reset~input_o\);
 
--- Location: FF_X43_Y4_N22
-\estado.S0~DUPLICATE\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \estado.S0~0_combout\,
-	clrn => \ALT_INV_reset~input_o\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \estado.S0~DUPLICATE_q\);
-
--- Location: LABCELL_X43_Y4_N27
-\estado.S1~0\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X9_Y16_N48
+\MaquinaEstados|estado.S3~feeder\ : cyclonev_lcell_comb
 -- Equation(s):
--- \estado.S1~0_combout\ = ( !\estado.S0~DUPLICATE_q\ )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1111111111111111111111111111111100000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataf => \ALT_INV_estado.S0~DUPLICATE_q\,
-	combout => \estado.S1~0_combout\);
-
--- Location: FF_X43_Y4_N29
-\estado.S1\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \estado.S1~0_combout\,
-	clrn => \ALT_INV_reset~input_o\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \estado.S1~q\);
-
--- Location: FF_X43_Y4_N20
-\estado.S2\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	asdata => \estado.S1~q\,
-	clrn => \ALT_INV_reset~input_o\,
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \estado.S2~q\);
-
--- Location: LABCELL_X43_Y4_N54
-\estado.S3~feeder\ : cyclonev_lcell_comb
--- Equation(s):
--- \estado.S3~feeder_combout\ = ( \estado.S2~q\ )
+-- \MaquinaEstados|estado.S3~feeder_combout\ = ( \MaquinaEstados|estado.S2~q\ )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -228,11 +170,11 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataf => \ALT_INV_estado.S2~q\,
-	combout => \estado.S3~feeder_combout\);
+	dataf => \MaquinaEstados|ALT_INV_estado.S2~q\,
+	combout => \MaquinaEstados|estado.S3~feeder_combout\);
 
--- Location: FF_X43_Y4_N56
-\estado.S3\ : dffeas
+-- Location: FF_X9_Y16_N50
+\MaquinaEstados|estado.S3\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -240,48 +182,16 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~inputCLKENA0_outclk\,
-	d => \estado.S3~feeder_combout\,
-	clrn => \ALT_INV_reset~input_o\,
+	d => \MaquinaEstados|estado.S3~feeder_combout\,
+	clrn => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \estado.S3~q\);
+	q => \MaquinaEstados|estado.S3~q\);
 
--- Location: FF_X43_Y4_N47
-\estado.S4\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	asdata => \estado.S3~q\,
-	clrn => \ALT_INV_reset~input_o\,
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \estado.S4~q\);
-
--- Location: FF_X43_Y4_N44
-\estado.S5\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	asdata => \estado.S4~q\,
-	clrn => \ALT_INV_reset~input_o\,
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \estado.S5~q\);
-
--- Location: LABCELL_X43_Y4_N57
-\estado.S6~feeder\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X9_Y16_N51
+\MaquinaEstados|estado.S4~feeder\ : cyclonev_lcell_comb
 -- Equation(s):
--- \estado.S6~feeder_combout\ = ( \estado.S5~q\ )
+-- \MaquinaEstados|estado.S4~feeder_combout\ = ( \MaquinaEstados|estado.S3~q\ )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -290,11 +200,11 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataf => \ALT_INV_estado.S5~q\,
-	combout => \estado.S6~feeder_combout\);
+	dataf => \MaquinaEstados|ALT_INV_estado.S3~q\,
+	combout => \MaquinaEstados|estado.S4~feeder_combout\);
 
--- Location: FF_X43_Y4_N59
-\estado.S6\ : dffeas
+-- Location: FF_X9_Y16_N53
+\MaquinaEstados|estado.S4\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -302,14 +212,29 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~inputCLKENA0_outclk\,
-	d => \estado.S6~feeder_combout\,
-	clrn => \ALT_INV_reset~input_o\,
+	d => \MaquinaEstados|estado.S4~feeder_combout\,
+	clrn => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \estado.S6~q\);
+	q => \MaquinaEstados|estado.S4~q\);
 
--- Location: FF_X43_Y4_N25
-\estado.S7\ : dffeas
+-- Location: MLABCELL_X9_Y16_N18
+\MaquinaEstados|estado.S5~feeder\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MaquinaEstados|estado.S5~feeder_combout\ = ( \MaquinaEstados|estado.S4~q\ )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000011111111111111111111111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataf => \MaquinaEstados|ALT_INV_estado.S4~q\,
+	combout => \MaquinaEstados|estado.S5~feeder_combout\);
+
+-- Location: FF_X9_Y16_N20
+\MaquinaEstados|estado.S5\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -317,17 +242,62 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~inputCLKENA0_outclk\,
-	asdata => \estado.S6~q\,
-	clrn => \ALT_INV_reset~input_o\,
+	d => \MaquinaEstados|estado.S5~feeder_combout\,
+	clrn => \reset~input_o\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \MaquinaEstados|estado.S5~q\);
+
+-- Location: MLABCELL_X9_Y16_N21
+\MaquinaEstados|estado.S6~feeder\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MaquinaEstados|estado.S6~feeder_combout\ = ( \MaquinaEstados|estado.S5~q\ )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000011111111111111111111111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataf => \MaquinaEstados|ALT_INV_estado.S5~q\,
+	combout => \MaquinaEstados|estado.S6~feeder_combout\);
+
+-- Location: FF_X9_Y16_N23
+\MaquinaEstados|estado.S6\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~inputCLKENA0_outclk\,
+	d => \MaquinaEstados|estado.S6~feeder_combout\,
+	clrn => \reset~input_o\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \MaquinaEstados|estado.S6~q\);
+
+-- Location: FF_X9_Y16_N44
+\MaquinaEstados|estado.S7\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~inputCLKENA0_outclk\,
+	asdata => \MaquinaEstados|estado.S6~q\,
+	clrn => \reset~input_o\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \estado.S7~q\);
+	q => \MaquinaEstados|estado.S7~q\);
 
--- Location: LABCELL_X43_Y4_N21
-\estado.S0~0\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X9_Y16_N27
+\MaquinaEstados|estado.S0~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \estado.S0~0_combout\ = ( !\estado.S7~q\ )
+-- \MaquinaEstados|estado.S0~0_combout\ = ( !\MaquinaEstados|estado.S7~q\ )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -336,11 +306,11 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataf => \ALT_INV_estado.S7~q\,
-	combout => \estado.S0~0_combout\);
+	dataf => \MaquinaEstados|ALT_INV_estado.S7~q\,
+	combout => \MaquinaEstados|estado.S0~0_combout\);
 
--- Location: FF_X43_Y4_N23
-\estado.S0\ : dffeas
+-- Location: FF_X9_Y16_N28
+\MaquinaEstados|estado.S0\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -348,32 +318,79 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~inputCLKENA0_outclk\,
-	d => \estado.S0~0_combout\,
-	clrn => \ALT_INV_reset~input_o\,
+	d => \MaquinaEstados|estado.S0~0_combout\,
+	clrn => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \estado.S0~q\);
+	q => \MaquinaEstados|estado.S0~q\);
 
--- Location: LABCELL_X43_Y4_N36
-\y~0\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X9_Y16_N45
+\MaquinaEstados|estado.S1~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \y~0_combout\ = ( \y~reg0_q\ & ( \estado.S2~q\ ) ) # ( !\y~reg0_q\ & ( \estado.S2~q\ & ( !\reset~input_o\ ) ) ) # ( \y~reg0_q\ & ( !\estado.S2~q\ & ( (\estado.S0~q\) # (\reset~input_o\) ) ) )
+-- \MaquinaEstados|estado.S1~0_combout\ = ( !\MaquinaEstados|estado.S0~q\ )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000001111110011111111001100110011001111111111111111",
+	lut_mask => "1111111111111111111111111111111100000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataf => \MaquinaEstados|ALT_INV_estado.S0~q\,
+	combout => \MaquinaEstados|estado.S1~0_combout\);
+
+-- Location: FF_X9_Y16_N47
+\MaquinaEstados|estado.S1\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~inputCLKENA0_outclk\,
+	d => \MaquinaEstados|estado.S1~0_combout\,
+	clrn => \reset~input_o\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \MaquinaEstados|estado.S1~q\);
+
+-- Location: FF_X9_Y16_N26
+\MaquinaEstados|estado.S2\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \clk~inputCLKENA0_outclk\,
+	asdata => \MaquinaEstados|estado.S1~q\,
+	clrn => \reset~input_o\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \MaquinaEstados|estado.S2~q\);
+
+-- Location: MLABCELL_X9_Y16_N54
+\MaquinaEstados|y~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \MaquinaEstados|y~0_combout\ = ( \MaquinaEstados|y~q\ & ( \MaquinaEstados|estado.S0~q\ ) ) # ( !\MaquinaEstados|y~q\ & ( \MaquinaEstados|estado.S0~q\ & ( (\reset~input_o\ & \MaquinaEstados|estado.S2~q\) ) ) ) # ( \MaquinaEstados|y~q\ & ( 
+-- !\MaquinaEstados|estado.S0~q\ & ( (!\reset~input_o\) # (\MaquinaEstados|estado.S2~q\) ) ) ) # ( !\MaquinaEstados|y~q\ & ( !\MaquinaEstados|estado.S0~q\ & ( (\reset~input_o\ & \MaquinaEstados|estado.S2~q\) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000001100000011110011111100111100000011000000111111111111111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
 	datab => \ALT_INV_reset~input_o\,
-	datac => \ALT_INV_estado.S0~q\,
-	datae => \ALT_INV_y~reg0_q\,
-	dataf => \ALT_INV_estado.S2~q\,
-	combout => \y~0_combout\);
+	datac => \MaquinaEstados|ALT_INV_estado.S2~q\,
+	datae => \MaquinaEstados|ALT_INV_y~q\,
+	dataf => \MaquinaEstados|ALT_INV_estado.S0~q\,
+	combout => \MaquinaEstados|y~0_combout\);
 
--- Location: FF_X43_Y4_N37
-\y~reg0\ : dffeas
+-- Location: FF_X9_Y16_N55
+\MaquinaEstados|y\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -381,12 +398,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~inputCLKENA0_outclk\,
-	d => \y~0_combout\,
+	d => \MaquinaEstados|y~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \y~reg0_q\);
+	q => \MaquinaEstados|y~q\);
 
--- Location: MLABCELL_X18_Y23_N0
+-- Location: LABCELL_X14_Y2_N0
 \~QUARTUS_CREATED_GND~I\ : cyclonev_lcell_comb
 -- Equation(s):
 
