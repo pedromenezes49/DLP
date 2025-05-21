@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity clock_divider is
     generic (
-        DIVISOR : integer := 100000 -- Divide o clock por este valor (50 MHz / 50e6 = 1 Hz)
+        DIVISOR : integer := 500000000 -- Divide o clock por este valor (50 MHz / 50e6 = 1 Hz)
     );
     port (
         clk_in  : in std_logic;  -- Clock de entrada (50 MHz)

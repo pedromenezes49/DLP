@@ -25,15 +25,21 @@ begin
 		elsif (clk'event and clk='1') then
 			case estado is
 				when S0 => y <='0';
-							  estado <=S1;
-				when S1 => estado <=S2;
+								estado <=S1;
+				when S1 => y <='0';
+								estado <=S2;
 				when S2 => y <='1';
-							  estado <=S3;
-				when S3 => estado <=S4;
-				when S4 => estado <=S5;
-				when S5 => estado <=S6;
-				when S6 => estado <=S7;
-				when S7 => estado <=S0;
+								estado <=S3;
+				when S3 => y <='1';
+								estado <=S4;
+				when S4 => y <='1';
+								estado <=S5;
+				when S5 => y <='1';
+								estado <=S6;
+				when S6 => y <='1';
+								estado <=S7;
+				when S7 => y <='1';
+								estado <=S0;
 			end case;
 		end if;
 	end process;

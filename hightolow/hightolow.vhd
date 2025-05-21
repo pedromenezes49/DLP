@@ -14,7 +14,7 @@ architecture behaviour of hightolow is
     -- Componente: Divisor de Clock
     component clock_divider is
         generic (
-            DIVISOR : integer := 100000 -- Teste com 100Hz primeiro
+            DIVISOR : integer := 50000000 
         );
         port (
             clk_in  : in std_logic;
@@ -32,7 +32,7 @@ architecture behaviour of hightolow is
 begin
     ClockDivider: clock_divider
         generic map (
-            DIVISOR => 500000000
+            DIVISOR => 50000000
         )
         port map (
             clk_in => clk,
