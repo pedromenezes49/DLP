@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Transmission_On",
+					"strict" : false
+				},
+				{
+					"name" : "Transmission_Done",
+					"strict" : false
+				},
+				{
+					"name" : "Transmission_Bit",
+					"strict" : false
+				},
+				{
+					"name" : "Reciever_Current_State[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Reciever_Current_State[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Reciever_Current_State[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Transmission_Current_State[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Transmission_Current_State[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Transmission_Current_State[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "input_bit",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
