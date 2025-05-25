@@ -1,0 +1,3798 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
+
+// DATE "05/25/2025 14:41:51"
+
+// 
+// Device: Altera 5CEBA4F23C7 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module UART (
+	clk,
+	input_bit,
+	Transmission_On,
+	Transmission_Done,
+	Transmission_Bit,
+	Reciever_Current_State,
+	Transmission_Current_State);
+input 	clk;
+input 	input_bit;
+output 	Transmission_On;
+output 	Transmission_Done;
+output 	Transmission_Bit;
+output 	[31:0] Reciever_Current_State;
+output 	[31:0] Transmission_Current_State;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \Transmission_On~output_o ;
+wire \Transmission_Done~output_o ;
+wire \Transmission_Bit~output_o ;
+wire \Reciever_Current_State[0]~output_o ;
+wire \Reciever_Current_State[1]~output_o ;
+wire \Reciever_Current_State[2]~output_o ;
+wire \Reciever_Current_State[3]~output_o ;
+wire \Reciever_Current_State[4]~output_o ;
+wire \Reciever_Current_State[5]~output_o ;
+wire \Reciever_Current_State[6]~output_o ;
+wire \Reciever_Current_State[7]~output_o ;
+wire \Reciever_Current_State[8]~output_o ;
+wire \Reciever_Current_State[9]~output_o ;
+wire \Reciever_Current_State[10]~output_o ;
+wire \Reciever_Current_State[11]~output_o ;
+wire \Reciever_Current_State[12]~output_o ;
+wire \Reciever_Current_State[13]~output_o ;
+wire \Reciever_Current_State[14]~output_o ;
+wire \Reciever_Current_State[15]~output_o ;
+wire \Reciever_Current_State[16]~output_o ;
+wire \Reciever_Current_State[17]~output_o ;
+wire \Reciever_Current_State[18]~output_o ;
+wire \Reciever_Current_State[19]~output_o ;
+wire \Reciever_Current_State[20]~output_o ;
+wire \Reciever_Current_State[21]~output_o ;
+wire \Reciever_Current_State[22]~output_o ;
+wire \Reciever_Current_State[23]~output_o ;
+wire \Reciever_Current_State[24]~output_o ;
+wire \Reciever_Current_State[25]~output_o ;
+wire \Reciever_Current_State[26]~output_o ;
+wire \Reciever_Current_State[27]~output_o ;
+wire \Reciever_Current_State[28]~output_o ;
+wire \Reciever_Current_State[29]~output_o ;
+wire \Reciever_Current_State[30]~output_o ;
+wire \Reciever_Current_State[31]~output_o ;
+wire \Transmission_Current_State[0]~output_o ;
+wire \Transmission_Current_State[1]~output_o ;
+wire \Transmission_Current_State[2]~output_o ;
+wire \Transmission_Current_State[3]~output_o ;
+wire \Transmission_Current_State[4]~output_o ;
+wire \Transmission_Current_State[5]~output_o ;
+wire \Transmission_Current_State[6]~output_o ;
+wire \Transmission_Current_State[7]~output_o ;
+wire \Transmission_Current_State[8]~output_o ;
+wire \Transmission_Current_State[9]~output_o ;
+wire \Transmission_Current_State[10]~output_o ;
+wire \Transmission_Current_State[11]~output_o ;
+wire \Transmission_Current_State[12]~output_o ;
+wire \Transmission_Current_State[13]~output_o ;
+wire \Transmission_Current_State[14]~output_o ;
+wire \Transmission_Current_State[15]~output_o ;
+wire \Transmission_Current_State[16]~output_o ;
+wire \Transmission_Current_State[17]~output_o ;
+wire \Transmission_Current_State[18]~output_o ;
+wire \Transmission_Current_State[19]~output_o ;
+wire \Transmission_Current_State[20]~output_o ;
+wire \Transmission_Current_State[21]~output_o ;
+wire \Transmission_Current_State[22]~output_o ;
+wire \Transmission_Current_State[23]~output_o ;
+wire \Transmission_Current_State[24]~output_o ;
+wire \Transmission_Current_State[25]~output_o ;
+wire \Transmission_Current_State[26]~output_o ;
+wire \Transmission_Current_State[27]~output_o ;
+wire \Transmission_Current_State[28]~output_o ;
+wire \Transmission_Current_State[29]~output_o ;
+wire \Transmission_Current_State[30]~output_o ;
+wire \Transmission_Current_State[31]~output_o ;
+wire \clk~input_o ;
+wire \UART_TX|LessThan1~0_combout ;
+wire \UART_TX|Selector8~0_combout ;
+wire \UART_TX|Selector7~0_combout ;
+wire \UART_TX|Selector6~0_combout ;
+wire \UART_TX|Selector11~0_combout ;
+wire \UART_TX|estado.Send_Data~q ;
+wire \UART_TX|Selector12~0_combout ;
+wire \UART_TX|estado.Parity_Bit~q ;
+wire \UART_TX|estado.Stop_Bit~q ;
+wire \UART_TX|estado~8_combout ;
+wire \UART_TX|estado.Cleanup~q ;
+wire \input_bit~input_o ;
+wire \UART_RX|RX_Data_Redundant~q ;
+wire \UART_RX|RX_Data~q ;
+wire \UART_RX|Equal0~0_combout ;
+wire \UART_RX|Count[1]~2_combout ;
+wire \UART_RX|LessThan1~0_combout ;
+wire \UART_RX|Selector15~0_combout ;
+wire \UART_RX|estado.Idle~q ;
+wire \UART_RX|Selector16~0_combout ;
+wire \UART_RX|estado.Start~q ;
+wire \UART_RX|Count[1]~3_combout ;
+wire \UART_RX|Count[1]~4_combout ;
+wire \UART_RX|Count[2]~6_combout ;
+wire \UART_RX|Count[1]~1_combout ;
+wire \UART_RX|Count[0]~7_combout ;
+wire \UART_RX|Count[1]~5_combout ;
+wire \UART_RX|Count[1]~0_combout ;
+wire \UART_RX|Selector5~0_combout ;
+wire \UART_RX|Selector4~0_combout ;
+wire \UART_RX|Selector3~0_combout ;
+wire \UART_RX|Decoder0~0_combout ;
+wire \UART_RX|Selector17~0_combout ;
+wire \UART_RX|estado.ReadByte~q ;
+wire \UART_RX|Selector18~0_combout ;
+wire \UART_RX|estado.Parity~q ;
+wire \UART_RX|Selector19~0_combout ;
+wire \UART_RX|estado.Stop~q ;
+wire \UART_RX|estado~8_combout ;
+wire \UART_RX|estado.Cleanup~q ;
+wire \UART_RX|Selector6~0_combout ;
+wire \UART_RX|Selector6~1_combout ;
+wire \UART_RX|DV~q ;
+wire \UART_TX|Selector9~0_combout ;
+wire \UART_TX|estado.Idle~q ;
+wire \UART_TX|Selector5~0_combout ;
+wire \UART_TX|Selector3~0_combout ;
+wire \UART_TX|Selector4~0_combout ;
+wire \UART_TX|Selector10~0_combout ;
+wire \UART_TX|estado.Start_Bit~q ;
+wire \UART_TX|Selector0~0_combout ;
+wire \UART_TX|TX_Active~q ;
+wire \UART_TX|Selector2~0_combout ;
+wire \UART_TX|Selector2~1_combout ;
+wire \UART_TX|TX_Done_Internal~q ;
+wire \UART_RX|Decoder0~1_combout ;
+wire \UART_RX|Selector9~0_combout ;
+wire \UART_TX|Selector10~1_combout ;
+wire \UART_RX|Selector7~0_combout ;
+wire \UART_RX|Decoder0~3_combout ;
+wire \UART_RX|Selector8~0_combout ;
+wire \UART_RX|Decoder0~4_combout ;
+wire \UART_RX|Selector13~0_combout ;
+wire \UART_RX|Decoder0~5_combout ;
+wire \UART_RX|Selector11~0_combout ;
+wire \UART_RX|Decoder0~7_combout ;
+wire \UART_RX|Selector12~0_combout ;
+wire \UART_RX|Decoder0~6_combout ;
+wire \UART_RX|Selector14~0_combout ;
+wire \UART_TX|Mux0~4_combout ;
+wire \UART_RX|Decoder0~2_combout ;
+wire \UART_RX|Selector10~0_combout ;
+wire \UART_TX|Mux0~0_combout ;
+wire \UART_TX|Selector1~0_combout ;
+wire \UART_TX|Selector1~1_combout ;
+wire \UART_TX|TX_Serial~q ;
+wire \UART_RX|WideOr0~combout ;
+wire \UART_RX|Current~4_combout ;
+wire \UART_RX|Current~5_combout ;
+wire \UART_TX|WideOr0~combout ;
+wire \UART_TX|Current~4_combout ;
+wire \UART_TX|Current~5_combout ;
+wire [31:0] \UART_TX|Current ;
+wire [31:0] \UART_RX|Current ;
+wire [2:0] \UART_RX|Count ;
+wire [2:0] \UART_TX|Count ;
+wire [2:0] \UART_RX|Index ;
+wire [2:0] \UART_TX|Index ;
+wire [7:0] \UART_TX|TX_Data ;
+wire [7:0] \UART_RX|Byte ;
+
+
+cyclonev_io_obuf \Transmission_On~output (
+	.i(\UART_TX|TX_Active~q ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_On~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_On~output .bus_hold = "false";
+defparam \Transmission_On~output .open_drain_output = "false";
+defparam \Transmission_On~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Done~output (
+	.i(\UART_TX|TX_Done_Internal~q ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Done~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Done~output .bus_hold = "false";
+defparam \Transmission_Done~output .open_drain_output = "false";
+defparam \Transmission_Done~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Bit~output (
+	.i(\UART_TX|TX_Serial~q ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Bit~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Bit~output .bus_hold = "false";
+defparam \Transmission_Bit~output .open_drain_output = "false";
+defparam \Transmission_Bit~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[0]~output (
+	.i(\UART_RX|Current [0]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[0]~output .bus_hold = "false";
+defparam \Reciever_Current_State[0]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[1]~output (
+	.i(\UART_RX|Current [1]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[1]~output .bus_hold = "false";
+defparam \Reciever_Current_State[1]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[2]~output (
+	.i(\UART_RX|Current [2]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[2]~output .bus_hold = "false";
+defparam \Reciever_Current_State[2]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[3]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[3]~output .bus_hold = "false";
+defparam \Reciever_Current_State[3]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[4]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[4]~output .bus_hold = "false";
+defparam \Reciever_Current_State[4]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[5]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[5]~output .bus_hold = "false";
+defparam \Reciever_Current_State[5]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[6]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[6]~output .bus_hold = "false";
+defparam \Reciever_Current_State[6]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[7]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[7]~output .bus_hold = "false";
+defparam \Reciever_Current_State[7]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[8]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[8]~output .bus_hold = "false";
+defparam \Reciever_Current_State[8]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[8]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[9]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[9]~output .bus_hold = "false";
+defparam \Reciever_Current_State[9]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[9]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[10]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[10]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[10]~output .bus_hold = "false";
+defparam \Reciever_Current_State[10]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[10]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[11]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[11]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[11]~output .bus_hold = "false";
+defparam \Reciever_Current_State[11]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[11]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[12]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[12]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[12]~output .bus_hold = "false";
+defparam \Reciever_Current_State[12]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[12]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[13]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[13]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[13]~output .bus_hold = "false";
+defparam \Reciever_Current_State[13]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[13]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[14]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[14]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[14]~output .bus_hold = "false";
+defparam \Reciever_Current_State[14]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[14]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[15]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[15]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[15]~output .bus_hold = "false";
+defparam \Reciever_Current_State[15]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[15]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[16]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[16]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[16]~output .bus_hold = "false";
+defparam \Reciever_Current_State[16]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[16]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[17]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[17]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[17]~output .bus_hold = "false";
+defparam \Reciever_Current_State[17]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[17]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[18]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[18]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[18]~output .bus_hold = "false";
+defparam \Reciever_Current_State[18]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[18]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[19]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[19]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[19]~output .bus_hold = "false";
+defparam \Reciever_Current_State[19]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[19]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[20]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[20]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[20]~output .bus_hold = "false";
+defparam \Reciever_Current_State[20]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[20]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[21]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[21]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[21]~output .bus_hold = "false";
+defparam \Reciever_Current_State[21]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[21]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[22]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[22]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[22]~output .bus_hold = "false";
+defparam \Reciever_Current_State[22]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[22]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[23]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[23]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[23]~output .bus_hold = "false";
+defparam \Reciever_Current_State[23]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[23]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[24]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[24]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[24]~output .bus_hold = "false";
+defparam \Reciever_Current_State[24]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[24]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[25]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[25]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[25]~output .bus_hold = "false";
+defparam \Reciever_Current_State[25]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[25]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[26]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[26]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[26]~output .bus_hold = "false";
+defparam \Reciever_Current_State[26]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[26]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[27]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[27]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[27]~output .bus_hold = "false";
+defparam \Reciever_Current_State[27]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[27]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[28]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[28]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[28]~output .bus_hold = "false";
+defparam \Reciever_Current_State[28]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[28]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[29]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[29]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[29]~output .bus_hold = "false";
+defparam \Reciever_Current_State[29]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[29]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[30]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[30]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[30]~output .bus_hold = "false";
+defparam \Reciever_Current_State[30]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[30]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Reciever_Current_State[31]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Reciever_Current_State[31]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Reciever_Current_State[31]~output .bus_hold = "false";
+defparam \Reciever_Current_State[31]~output .open_drain_output = "false";
+defparam \Reciever_Current_State[31]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[0]~output (
+	.i(\UART_TX|Current [0]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[0]~output .bus_hold = "false";
+defparam \Transmission_Current_State[0]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[1]~output (
+	.i(\UART_TX|Current [1]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[1]~output .bus_hold = "false";
+defparam \Transmission_Current_State[1]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[2]~output (
+	.i(\UART_TX|Current [2]),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[2]~output .bus_hold = "false";
+defparam \Transmission_Current_State[2]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[3]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[3]~output .bus_hold = "false";
+defparam \Transmission_Current_State[3]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[4]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[4]~output .bus_hold = "false";
+defparam \Transmission_Current_State[4]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[5]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[5]~output .bus_hold = "false";
+defparam \Transmission_Current_State[5]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[6]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[6]~output .bus_hold = "false";
+defparam \Transmission_Current_State[6]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[7]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[7]~output .bus_hold = "false";
+defparam \Transmission_Current_State[7]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[8]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[8]~output .bus_hold = "false";
+defparam \Transmission_Current_State[8]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[8]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[9]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[9]~output .bus_hold = "false";
+defparam \Transmission_Current_State[9]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[9]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[10]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[10]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[10]~output .bus_hold = "false";
+defparam \Transmission_Current_State[10]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[10]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[11]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[11]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[11]~output .bus_hold = "false";
+defparam \Transmission_Current_State[11]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[11]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[12]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[12]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[12]~output .bus_hold = "false";
+defparam \Transmission_Current_State[12]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[12]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[13]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[13]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[13]~output .bus_hold = "false";
+defparam \Transmission_Current_State[13]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[13]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[14]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[14]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[14]~output .bus_hold = "false";
+defparam \Transmission_Current_State[14]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[14]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[15]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[15]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[15]~output .bus_hold = "false";
+defparam \Transmission_Current_State[15]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[15]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[16]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[16]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[16]~output .bus_hold = "false";
+defparam \Transmission_Current_State[16]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[16]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[17]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[17]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[17]~output .bus_hold = "false";
+defparam \Transmission_Current_State[17]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[17]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[18]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[18]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[18]~output .bus_hold = "false";
+defparam \Transmission_Current_State[18]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[18]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[19]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[19]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[19]~output .bus_hold = "false";
+defparam \Transmission_Current_State[19]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[19]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[20]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[20]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[20]~output .bus_hold = "false";
+defparam \Transmission_Current_State[20]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[20]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[21]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[21]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[21]~output .bus_hold = "false";
+defparam \Transmission_Current_State[21]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[21]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[22]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[22]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[22]~output .bus_hold = "false";
+defparam \Transmission_Current_State[22]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[22]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[23]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[23]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[23]~output .bus_hold = "false";
+defparam \Transmission_Current_State[23]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[23]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[24]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[24]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[24]~output .bus_hold = "false";
+defparam \Transmission_Current_State[24]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[24]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[25]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[25]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[25]~output .bus_hold = "false";
+defparam \Transmission_Current_State[25]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[25]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[26]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[26]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[26]~output .bus_hold = "false";
+defparam \Transmission_Current_State[26]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[26]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[27]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[27]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[27]~output .bus_hold = "false";
+defparam \Transmission_Current_State[27]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[27]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[28]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[28]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[28]~output .bus_hold = "false";
+defparam \Transmission_Current_State[28]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[28]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[29]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[29]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[29]~output .bus_hold = "false";
+defparam \Transmission_Current_State[29]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[29]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[30]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[30]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[30]~output .bus_hold = "false";
+defparam \Transmission_Current_State[30]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[30]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_obuf \Transmission_Current_State[31]~output (
+	.i(gnd),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Transmission_Current_State[31]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Transmission_Current_State[31]~output .bus_hold = "false";
+defparam \Transmission_Current_State[31]~output .open_drain_output = "false";
+defparam \Transmission_Current_State[31]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+cyclonev_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|LessThan1~0 (
+// Equation(s):
+// \UART_TX|LessThan1~0_combout  = (\UART_TX|Count [1] & \UART_TX|Count [2])
+
+	.dataa(!\UART_TX|Count [1]),
+	.datab(!\UART_TX|Count [2]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|LessThan1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|LessThan1~0 .extended_lut = "off";
+defparam \UART_TX|LessThan1~0 .lut_mask = 64'h1111111111111111;
+defparam \UART_TX|LessThan1~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector8~0 (
+// Equation(s):
+// \UART_TX|Selector8~0_combout  = ( \UART_TX|Index [0] & ( (!\UART_TX|estado.Send_Data~q  & (((\UART_TX|estado.Idle~q )))) # (\UART_TX|estado.Send_Data~q  & ((!\UART_TX|Count [1]) # ((!\UART_TX|Count [2])))) ) ) # ( !\UART_TX|Index [0] & ( 
+// (\UART_TX|estado.Send_Data~q  & (\UART_TX|Count [1] & \UART_TX|Count [2])) ) )
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|Count [1]),
+	.datac(!\UART_TX|Count [2]),
+	.datad(!\UART_TX|estado.Idle~q ),
+	.datae(!\UART_TX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector8~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector8~0 .extended_lut = "off";
+defparam \UART_TX|Selector8~0 .lut_mask = 64'h010154FE010154FE;
+defparam \UART_TX|Selector8~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Index[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector8~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Index [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Index[0] .is_wysiwyg = "true";
+defparam \UART_TX|Index[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector7~0 (
+// Equation(s):
+// \UART_TX|Selector7~0_combout  = ( \UART_TX|Index [1] & ( \UART_TX|Index [0] & ( (!\UART_TX|estado.Send_Data~q  & (((\UART_TX|estado.Idle~q )))) # (\UART_TX|estado.Send_Data~q  & ((!\UART_TX|Count [1]) # ((!\UART_TX|Count [2])))) ) ) ) # ( !\UART_TX|Index 
+// [1] & ( \UART_TX|Index [0] & ( (\UART_TX|estado.Send_Data~q  & (\UART_TX|Count [1] & \UART_TX|Count [2])) ) ) ) # ( \UART_TX|Index [1] & ( !\UART_TX|Index [0] & ( (\UART_TX|estado.Idle~q ) # (\UART_TX|estado.Send_Data~q ) ) ) )
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|Count [1]),
+	.datac(!\UART_TX|Count [2]),
+	.datad(!\UART_TX|estado.Idle~q ),
+	.datae(!\UART_TX|Index [1]),
+	.dataf(!\UART_TX|Index [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector7~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector7~0 .extended_lut = "off";
+defparam \UART_TX|Selector7~0 .lut_mask = 64'h000055FF010154FE;
+defparam \UART_TX|Selector7~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Index[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector7~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Index [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Index[1] .is_wysiwyg = "true";
+defparam \UART_TX|Index[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector6~0 (
+// Equation(s):
+// \UART_TX|Selector6~0_combout  = ( \UART_TX|Index [1] & ( \UART_TX|Index [0] & ( (!\UART_TX|estado.Send_Data~q  & (((\UART_TX|estado.Idle~q  & \UART_TX|Index [2])))) # (\UART_TX|estado.Send_Data~q  & (!\UART_TX|LessThan1~0_combout  $ (((!\UART_TX|Index 
+// [2]))))) ) ) ) # ( !\UART_TX|Index [1] & ( \UART_TX|Index [0] & ( (\UART_TX|Index [2] & ((\UART_TX|estado.Idle~q ) # (\UART_TX|estado.Send_Data~q ))) ) ) ) # ( \UART_TX|Index [1] & ( !\UART_TX|Index [0] & ( (\UART_TX|Index [2] & ((\UART_TX|estado.Idle~q ) 
+// # (\UART_TX|estado.Send_Data~q ))) ) ) ) # ( !\UART_TX|Index [1] & ( !\UART_TX|Index [0] & ( (\UART_TX|Index [2] & ((\UART_TX|estado.Idle~q ) # (\UART_TX|estado.Send_Data~q ))) ) ) )
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|LessThan1~0_combout ),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(!\UART_TX|Index [2]),
+	.datae(!\UART_TX|Index [1]),
+	.dataf(!\UART_TX|Index [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector6~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector6~0 .extended_lut = "off";
+defparam \UART_TX|Selector6~0 .lut_mask = 64'h005F005F005F114E;
+defparam \UART_TX|Selector6~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Index[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector6~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Index [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Index[2] .is_wysiwyg = "true";
+defparam \UART_TX|Index[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector11~0 (
+// Equation(s):
+// \UART_TX|Selector11~0_combout  = ( \UART_TX|Index [1] & ( \UART_TX|Index [0] & ( (!\UART_TX|LessThan1~0_combout  & (((\UART_TX|estado.Send_Data~q )))) # (\UART_TX|LessThan1~0_combout  & (((\UART_TX|estado.Send_Data~q  & !\UART_TX|Index [2])) # 
+// (\UART_TX|estado.Start_Bit~q ))) ) ) ) # ( !\UART_TX|Index [1] & ( \UART_TX|Index [0] & ( ((\UART_TX|estado.Start_Bit~q  & \UART_TX|LessThan1~0_combout )) # (\UART_TX|estado.Send_Data~q ) ) ) ) # ( \UART_TX|Index [1] & ( !\UART_TX|Index [0] & ( 
+// ((\UART_TX|estado.Start_Bit~q  & \UART_TX|LessThan1~0_combout )) # (\UART_TX|estado.Send_Data~q ) ) ) ) # ( !\UART_TX|Index [1] & ( !\UART_TX|Index [0] & ( ((\UART_TX|estado.Start_Bit~q  & \UART_TX|LessThan1~0_combout )) # (\UART_TX|estado.Send_Data~q ) ) 
+// ) )
+
+	.dataa(!\UART_TX|estado.Start_Bit~q ),
+	.datab(!\UART_TX|estado.Send_Data~q ),
+	.datac(!\UART_TX|LessThan1~0_combout ),
+	.datad(!\UART_TX|Index [2]),
+	.datae(!\UART_TX|Index [1]),
+	.dataf(!\UART_TX|Index [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector11~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector11~0 .extended_lut = "off";
+defparam \UART_TX|Selector11~0 .lut_mask = 64'h3737373737373735;
+defparam \UART_TX|Selector11~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Send_Data (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector11~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Send_Data~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Send_Data .is_wysiwyg = "true";
+defparam \UART_TX|estado.Send_Data .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector12~0 (
+// Equation(s):
+// \UART_TX|Selector12~0_combout  = (\UART_TX|estado.Send_Data~q  & (\UART_TX|Index [2] & (\UART_TX|Index [1] & \UART_TX|Index [0])))
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|Index [2]),
+	.datac(!\UART_TX|Index [1]),
+	.datad(!\UART_TX|Index [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector12~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector12~0 .extended_lut = "off";
+defparam \UART_TX|Selector12~0 .lut_mask = 64'h0001000100010001;
+defparam \UART_TX|Selector12~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Parity_Bit (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector12~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|LessThan1~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Parity_Bit~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Parity_Bit .is_wysiwyg = "true";
+defparam \UART_TX|estado.Parity_Bit .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Stop_Bit (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|estado.Parity_Bit~q ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|LessThan1~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Stop_Bit~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Stop_Bit .is_wysiwyg = "true";
+defparam \UART_TX|estado.Stop_Bit .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|estado~8 (
+// Equation(s):
+// \UART_TX|estado~8_combout  = (\UART_TX|estado.Stop_Bit~q  & (\UART_TX|Count [1] & \UART_TX|Count [2]))
+
+	.dataa(!\UART_TX|estado.Stop_Bit~q ),
+	.datab(!\UART_TX|Count [1]),
+	.datac(!\UART_TX|Count [2]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|estado~8_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|estado~8 .extended_lut = "off";
+defparam \UART_TX|estado~8 .lut_mask = 64'h0101010101010101;
+defparam \UART_TX|estado~8 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Cleanup (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|estado~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Cleanup~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Cleanup .is_wysiwyg = "true";
+defparam \UART_TX|estado.Cleanup .power_up = "low";
+// synopsys translate_on
+
+cyclonev_io_ibuf \input_bit~input (
+	.i(input_bit),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\input_bit~input_o ));
+// synopsys translate_off
+defparam \input_bit~input .bus_hold = "false";
+defparam \input_bit~input .simulate_z_as = "z";
+// synopsys translate_on
+
+dffeas \UART_RX|RX_Data_Redundant (
+	.clk(\clk~input_o ),
+	.d(\input_bit~input_o ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|RX_Data_Redundant~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|RX_Data_Redundant .is_wysiwyg = "true";
+defparam \UART_RX|RX_Data_Redundant .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_RX|RX_Data (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|RX_Data_Redundant~q ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|RX_Data~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|RX_Data .is_wysiwyg = "true";
+defparam \UART_RX|RX_Data .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Equal0~0 (
+// Equation(s):
+// \UART_RX|Equal0~0_combout  = (\UART_RX|Count [1] & \UART_RX|Count [0])
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [0]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Equal0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Equal0~0 .extended_lut = "off";
+defparam \UART_RX|Equal0~0 .lut_mask = 64'h1111111111111111;
+defparam \UART_RX|Equal0~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~2 (
+// Equation(s):
+// \UART_RX|Count[1]~2_combout  = ( \UART_RX|Count [2] & ( (!\UART_RX|estado.Cleanup~q  & ((!\UART_RX|estado.Parity~q ) # ((!\UART_RX|Count [1]) # (\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Count [2] & ( !\UART_RX|estado.Cleanup~q  ) )
+
+	.dataa(!\UART_RX|estado.Parity~q ),
+	.datab(!\UART_RX|estado.Cleanup~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Count [1]),
+	.datae(!\UART_RX|Count [2]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~2 .extended_lut = "off";
+defparam \UART_RX|Count[1]~2 .lut_mask = 64'hCCCCCC8CCCCCCC8C;
+defparam \UART_RX|Count[1]~2 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|LessThan1~0 (
+// Equation(s):
+// \UART_RX|LessThan1~0_combout  = (\UART_RX|Count [1] & \UART_RX|Count [2])
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|LessThan1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|LessThan1~0 .extended_lut = "off";
+defparam \UART_RX|LessThan1~0 .lut_mask = 64'h1111111111111111;
+defparam \UART_RX|LessThan1~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector15~0 (
+// Equation(s):
+// \UART_RX|Selector15~0_combout  = ( \UART_RX|LessThan1~0_combout  & ( \UART_RX|Count[1]~0_combout  & ( (!\UART_RX|estado.Parity~q  & (!\UART_RX|estado.Cleanup~q  & !\UART_RX|RX_Data~q )) ) ) ) # ( !\UART_RX|LessThan1~0_combout  & ( 
+// \UART_RX|Count[1]~0_combout  & ( (!\UART_RX|estado.Cleanup~q  & !\UART_RX|RX_Data~q ) ) ) ) # ( \UART_RX|LessThan1~0_combout  & ( !\UART_RX|Count[1]~0_combout  & ( (!\UART_RX|estado.Cleanup~q  & ((!\UART_RX|RX_Data~q  & ((!\UART_RX|estado.Parity~q ))) # 
+// (\UART_RX|RX_Data~q  & (\UART_RX|estado.Idle~q )))) ) ) ) # ( !\UART_RX|LessThan1~0_combout  & ( !\UART_RX|Count[1]~0_combout  & ( (!\UART_RX|estado.Cleanup~q  & ((!\UART_RX|RX_Data~q ) # (\UART_RX|estado.Idle~q ))) ) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.Parity~q ),
+	.datac(!\UART_RX|estado.Cleanup~q ),
+	.datad(!\UART_RX|RX_Data~q ),
+	.datae(!\UART_RX|LessThan1~0_combout ),
+	.dataf(!\UART_RX|Count[1]~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector15~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector15~0 .extended_lut = "off";
+defparam \UART_RX|Selector15~0 .lut_mask = 64'hF050C050F000C000;
+defparam \UART_RX|Selector15~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.Idle (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector15~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.Idle~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.Idle .is_wysiwyg = "true";
+defparam \UART_RX|estado.Idle .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector16~0 (
+// Equation(s):
+// \UART_RX|Selector16~0_combout  = ( \UART_RX|Count [0] & ( \UART_RX|estado.Start~q  & ( (!\UART_RX|Count [1]) # (((!\UART_RX|estado.Idle~q  & !\UART_RX|RX_Data~q )) # (\UART_RX|Count [2])) ) ) ) # ( !\UART_RX|Count [0] & ( \UART_RX|estado.Start~q  ) ) # ( 
+// \UART_RX|Count [0] & ( !\UART_RX|estado.Start~q  & ( (!\UART_RX|estado.Idle~q  & !\UART_RX|RX_Data~q ) ) ) ) # ( !\UART_RX|Count [0] & ( !\UART_RX|estado.Start~q  & ( (!\UART_RX|estado.Idle~q  & !\UART_RX|RX_Data~q ) ) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|RX_Data~q ),
+	.datac(!\UART_RX|Count [1]),
+	.datad(!\UART_RX|Count [2]),
+	.datae(!\UART_RX|Count [0]),
+	.dataf(!\UART_RX|estado.Start~q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector16~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector16~0 .extended_lut = "off";
+defparam \UART_RX|Selector16~0 .lut_mask = 64'h88888888FFFFF8FF;
+defparam \UART_RX|Selector16~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.Start (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector16~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.Start~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.Start .is_wysiwyg = "true";
+defparam \UART_RX|estado.Start .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~3 (
+// Equation(s):
+// \UART_RX|Count[1]~3_combout  = ( \UART_RX|estado.Start~q  & ( (\UART_RX|Count [1] & ((!\UART_RX|Count [2] & ((\UART_RX|Count [0]))) # (\UART_RX|Count [2] & (\UART_RX|estado.Parity~q )))) ) ) # ( !\UART_RX|estado.Start~q  & ( (\UART_RX|estado.Parity~q  & 
+// (\UART_RX|Count [1] & \UART_RX|Count [2])) ) )
+
+	.dataa(!\UART_RX|estado.Parity~q ),
+	.datab(!\UART_RX|Count [1]),
+	.datac(!\UART_RX|Count [2]),
+	.datad(!\UART_RX|Count [0]),
+	.datae(!\UART_RX|estado.Start~q ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~3_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~3 .extended_lut = "off";
+defparam \UART_RX|Count[1]~3 .lut_mask = 64'h0101013101010131;
+defparam \UART_RX|Count[1]~3 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~4 (
+// Equation(s):
+// \UART_RX|Count[1]~4_combout  = ( \UART_RX|Count [2] & ( !\UART_RX|estado.Idle~q  $ (((!\UART_RX|Count [1]) # ((!\UART_RX|estado.Stop~q  & !\UART_RX|estado.ReadByte~q )))) ) ) # ( !\UART_RX|Count [2] & ( \UART_RX|estado.Idle~q  ) )
+
+	.dataa(!\UART_RX|estado.Stop~q ),
+	.datab(!\UART_RX|estado.Idle~q ),
+	.datac(!\UART_RX|estado.ReadByte~q ),
+	.datad(!\UART_RX|Count [1]),
+	.datae(!\UART_RX|Count [2]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~4 .extended_lut = "off";
+defparam \UART_RX|Count[1]~4 .lut_mask = 64'h3333336C3333336C;
+defparam \UART_RX|Count[1]~4 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[2]~6 (
+// Equation(s):
+// \UART_RX|Count[2]~6_combout  = ( \UART_RX|Count[1]~3_combout  & ( \UART_RX|Count[1]~4_combout  & ( (\UART_RX|Count [2] & ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout ))) ) ) ) # ( !\UART_RX|Count[1]~3_combout  & ( 
+// \UART_RX|Count[1]~4_combout  & ( !\UART_RX|Count [2] $ (((!\UART_RX|Equal0~0_combout ) # ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout )))) ) ) ) # ( \UART_RX|Count[1]~3_combout  & ( !\UART_RX|Count[1]~4_combout  & ( !\UART_RX|Count [2] 
+// $ (((!\UART_RX|Equal0~0_combout ) # ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout )))) ) ) ) # ( !\UART_RX|Count[1]~3_combout  & ( !\UART_RX|Count[1]~4_combout  & ( (\UART_RX|Count [2] & ((!\UART_RX|Count[1]~2_combout ) # 
+// (\UART_RX|Count[1]~1_combout ))) ) ) )
+
+	.dataa(!\UART_RX|Count [2]),
+	.datab(!\UART_RX|Equal0~0_combout ),
+	.datac(!\UART_RX|Count[1]~1_combout ),
+	.datad(!\UART_RX|Count[1]~2_combout ),
+	.datae(!\UART_RX|Count[1]~3_combout ),
+	.dataf(!\UART_RX|Count[1]~4_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[2]~6_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[2]~6 .extended_lut = "off";
+defparam \UART_RX|Count[2]~6 .lut_mask = 64'h5505556555655505;
+defparam \UART_RX|Count[2]~6 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Count[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Count[2]~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Count[2] .is_wysiwyg = "true";
+defparam \UART_RX|Count[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~1 (
+// Equation(s):
+// \UART_RX|Count[1]~1_combout  = ( \UART_RX|Count [0] & ( \UART_RX|estado.Start~q  & ( (\UART_RX|Count [1] & (!\UART_RX|Count [2] & (!\UART_RX|estado.Parity~q  $ (!\UART_RX|RX_Data~q )))) ) ) )
+
+	.dataa(!\UART_RX|estado.Parity~q ),
+	.datab(!\UART_RX|RX_Data~q ),
+	.datac(!\UART_RX|Count [1]),
+	.datad(!\UART_RX|Count [2]),
+	.datae(!\UART_RX|Count [0]),
+	.dataf(!\UART_RX|estado.Start~q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~1 .extended_lut = "off";
+defparam \UART_RX|Count[1]~1 .lut_mask = 64'h0000000000000600;
+defparam \UART_RX|Count[1]~1 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[0]~7 (
+// Equation(s):
+// \UART_RX|Count[0]~7_combout  = ( \UART_RX|Count[1]~4_combout  & ( (!\UART_RX|Count [0] & (!\UART_RX|Count[1]~1_combout  & (\UART_RX|Count[1]~2_combout  & !\UART_RX|Count[1]~3_combout ))) # (\UART_RX|Count [0] & (((!\UART_RX|Count[1]~2_combout )) # 
+// (\UART_RX|Count[1]~1_combout ))) ) ) # ( !\UART_RX|Count[1]~4_combout  & ( (!\UART_RX|Count [0] & (!\UART_RX|Count[1]~1_combout  & (\UART_RX|Count[1]~2_combout  & \UART_RX|Count[1]~3_combout ))) # (\UART_RX|Count [0] & (((!\UART_RX|Count[1]~2_combout )) # 
+// (\UART_RX|Count[1]~1_combout ))) ) )
+
+	.dataa(!\UART_RX|Count [0]),
+	.datab(!\UART_RX|Count[1]~1_combout ),
+	.datac(!\UART_RX|Count[1]~2_combout ),
+	.datad(!\UART_RX|Count[1]~3_combout ),
+	.datae(!\UART_RX|Count[1]~4_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[0]~7_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[0]~7 .extended_lut = "off";
+defparam \UART_RX|Count[0]~7 .lut_mask = 64'h5159595151595951;
+defparam \UART_RX|Count[0]~7 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Count[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Count[0]~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Count[0] .is_wysiwyg = "true";
+defparam \UART_RX|Count[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~5 (
+// Equation(s):
+// \UART_RX|Count[1]~5_combout  = ( \UART_RX|Count[1]~3_combout  & ( \UART_RX|Count[1]~4_combout  & ( (\UART_RX|Count [1] & ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout ))) ) ) ) # ( !\UART_RX|Count[1]~3_combout  & ( 
+// \UART_RX|Count[1]~4_combout  & ( !\UART_RX|Count [1] $ (((!\UART_RX|Count [0]) # ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout )))) ) ) ) # ( \UART_RX|Count[1]~3_combout  & ( !\UART_RX|Count[1]~4_combout  & ( !\UART_RX|Count [1] $ 
+// (((!\UART_RX|Count [0]) # ((!\UART_RX|Count[1]~2_combout ) # (\UART_RX|Count[1]~1_combout )))) ) ) ) # ( !\UART_RX|Count[1]~3_combout  & ( !\UART_RX|Count[1]~4_combout  & ( (\UART_RX|Count [1] & ((!\UART_RX|Count[1]~2_combout ) # 
+// (\UART_RX|Count[1]~1_combout ))) ) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [0]),
+	.datac(!\UART_RX|Count[1]~1_combout ),
+	.datad(!\UART_RX|Count[1]~2_combout ),
+	.datae(!\UART_RX|Count[1]~3_combout ),
+	.dataf(!\UART_RX|Count[1]~4_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~5_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~5 .extended_lut = "off";
+defparam \UART_RX|Count[1]~5 .lut_mask = 64'h5505556555655505;
+defparam \UART_RX|Count[1]~5 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Count[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Count[1]~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Count[1] .is_wysiwyg = "true";
+defparam \UART_RX|Count[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Count[1]~0 (
+// Equation(s):
+// \UART_RX|Count[1]~0_combout  = (\UART_RX|Count [1] & (!\UART_RX|Count [2] & (\UART_RX|Count [0] & \UART_RX|estado.Start~q )))
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Count [0]),
+	.datad(!\UART_RX|estado.Start~q ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Count[1]~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Count[1]~0 .extended_lut = "off";
+defparam \UART_RX|Count[1]~0 .lut_mask = 64'h0004000400040004;
+defparam \UART_RX|Count[1]~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector5~0 (
+// Equation(s):
+// \UART_RX|Selector5~0_combout  = ( \UART_RX|Index [0] & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q )) # (\UART_RX|estado.ReadByte~q  & (((!\UART_RX|Count [1]) # (!\UART_RX|Count [2])))) ) ) # ( !\UART_RX|Index [0] & ( 
+// (\UART_RX|estado.ReadByte~q  & (\UART_RX|Count [1] & \UART_RX|Count [2])) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|Count [1]),
+	.datad(!\UART_RX|Count [2]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector5~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector5~0 .extended_lut = "off";
+defparam \UART_RX|Selector5~0 .lut_mask = 64'h0003777400037774;
+defparam \UART_RX|Selector5~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Index[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector5~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Index [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Index[0] .is_wysiwyg = "true";
+defparam \UART_RX|Index[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector4~0 (
+// Equation(s):
+// \UART_RX|Selector4~0_combout  = ( \UART_RX|Index [1] & ( \UART_RX|Index [0] & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q )) # (\UART_RX|estado.ReadByte~q  & (((!\UART_RX|Count [1]) # (!\UART_RX|Count [2])))) ) ) ) # ( !\UART_RX|Index [1] & 
+// ( \UART_RX|Index [0] & ( (\UART_RX|estado.ReadByte~q  & (\UART_RX|Count [1] & \UART_RX|Count [2])) ) ) ) # ( \UART_RX|Index [1] & ( !\UART_RX|Index [0] & ( (\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ) ) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|Count [1]),
+	.datad(!\UART_RX|Count [2]),
+	.datae(!\UART_RX|Index [1]),
+	.dataf(!\UART_RX|Index [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector4~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector4~0 .extended_lut = "off";
+defparam \UART_RX|Selector4~0 .lut_mask = 64'h0000777700037774;
+defparam \UART_RX|Selector4~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Index[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector4~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Index [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Index[1] .is_wysiwyg = "true";
+defparam \UART_RX|Index[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector3~0 (
+// Equation(s):
+// \UART_RX|Selector3~0_combout  = ( \UART_RX|Index [1] & ( \UART_RX|Index [0] & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Index [2])))) # (\UART_RX|estado.ReadByte~q  & ((!\UART_RX|LessThan1~0_combout  $ (!\UART_RX|Index 
+// [2])))) ) ) ) # ( !\UART_RX|Index [1] & ( \UART_RX|Index [0] & ( (\UART_RX|Index [2] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) ) ) # ( \UART_RX|Index [1] & ( !\UART_RX|Index [0] & ( (\UART_RX|Index [2] & ((\UART_RX|estado.ReadByte~q 
+// ) # (\UART_RX|estado.Idle~q ))) ) ) ) # ( !\UART_RX|Index [1] & ( !\UART_RX|Index [0] & ( (\UART_RX|Index [2] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|LessThan1~0_combout ),
+	.datad(!\UART_RX|Index [2]),
+	.datae(!\UART_RX|Index [1]),
+	.dataf(!\UART_RX|Index [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector3~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector3~0 .extended_lut = "off";
+defparam \UART_RX|Selector3~0 .lut_mask = 64'h0077007700770374;
+defparam \UART_RX|Selector3~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Index[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector3~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Index [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Index[2] .is_wysiwyg = "true";
+defparam \UART_RX|Index[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~0 (
+// Equation(s):
+// \UART_RX|Decoder0~0_combout  = ( \UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (\UART_RX|Index [2] & \UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~0 .extended_lut = "off";
+defparam \UART_RX|Decoder0~0 .lut_mask = 64'h0000000100000001;
+defparam \UART_RX|Decoder0~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector17~0 (
+// Equation(s):
+// \UART_RX|Selector17~0_combout  = (!\UART_RX|estado.ReadByte~q  & (!\UART_RX|RX_Data~q  & (\UART_RX|Count[1]~0_combout ))) # (\UART_RX|estado.ReadByte~q  & ((!\UART_RX|Decoder0~0_combout ) # ((!\UART_RX|RX_Data~q  & \UART_RX|Count[1]~0_combout ))))
+
+	.dataa(!\UART_RX|estado.ReadByte~q ),
+	.datab(!\UART_RX|RX_Data~q ),
+	.datac(!\UART_RX|Count[1]~0_combout ),
+	.datad(!\UART_RX|Decoder0~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector17~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector17~0 .extended_lut = "off";
+defparam \UART_RX|Selector17~0 .lut_mask = 64'h5D0C5D0C5D0C5D0C;
+defparam \UART_RX|Selector17~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.ReadByte (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector17~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.ReadByte~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.ReadByte .is_wysiwyg = "true";
+defparam \UART_RX|estado.ReadByte .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector18~0 (
+// Equation(s):
+// \UART_RX|Selector18~0_combout  = (\UART_RX|estado.ReadByte~q  & (\UART_RX|Index [2] & (\UART_RX|Index [1] & \UART_RX|Index [0])))
+
+	.dataa(!\UART_RX|estado.ReadByte~q ),
+	.datab(!\UART_RX|Index [2]),
+	.datac(!\UART_RX|Index [1]),
+	.datad(!\UART_RX|Index [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector18~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector18~0 .extended_lut = "off";
+defparam \UART_RX|Selector18~0 .lut_mask = 64'h0001000100010001;
+defparam \UART_RX|Selector18~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.Parity (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector18~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_RX|LessThan1~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.Parity~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.Parity .is_wysiwyg = "true";
+defparam \UART_RX|estado.Parity .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector19~0 (
+// Equation(s):
+// \UART_RX|Selector19~0_combout  = (\UART_RX|estado.Parity~q  & \UART_RX|RX_Data~q )
+
+	.dataa(!\UART_RX|estado.Parity~q ),
+	.datab(!\UART_RX|RX_Data~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector19~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector19~0 .extended_lut = "off";
+defparam \UART_RX|Selector19~0 .lut_mask = 64'h1111111111111111;
+defparam \UART_RX|Selector19~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.Stop (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector19~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_RX|LessThan1~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.Stop~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.Stop .is_wysiwyg = "true";
+defparam \UART_RX|estado.Stop .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|estado~8 (
+// Equation(s):
+// \UART_RX|estado~8_combout  = (\UART_RX|estado.Stop~q  & (\UART_RX|Count [1] & \UART_RX|Count [2]))
+
+	.dataa(!\UART_RX|estado.Stop~q ),
+	.datab(!\UART_RX|Count [1]),
+	.datac(!\UART_RX|Count [2]),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|estado~8_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|estado~8 .extended_lut = "off";
+defparam \UART_RX|estado~8 .lut_mask = 64'h0101010101010101;
+defparam \UART_RX|estado~8 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|estado.Cleanup (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|estado~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|estado.Cleanup~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|estado.Cleanup .is_wysiwyg = "true";
+defparam \UART_RX|estado.Cleanup .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector6~0 (
+// Equation(s):
+// \UART_RX|Selector6~0_combout  = (!\UART_RX|estado.Stop~q  & (!\UART_RX|estado.ReadByte~q  & (!\UART_RX|estado.Parity~q  & !\UART_RX|estado.Start~q )))
+
+	.dataa(!\UART_RX|estado.Stop~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|estado.Parity~q ),
+	.datad(!\UART_RX|estado.Start~q ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector6~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector6~0 .extended_lut = "off";
+defparam \UART_RX|Selector6~0 .lut_mask = 64'h8000800080008000;
+defparam \UART_RX|Selector6~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector6~1 (
+// Equation(s):
+// \UART_RX|Selector6~1_combout  = (((\UART_RX|DV~q  & !\UART_RX|Selector6~0_combout )) # (\UART_RX|estado~8_combout )) # (\UART_RX|estado.Cleanup~q )
+
+	.dataa(!\UART_RX|estado.Cleanup~q ),
+	.datab(!\UART_RX|DV~q ),
+	.datac(!\UART_RX|estado~8_combout ),
+	.datad(!\UART_RX|Selector6~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector6~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector6~1 .extended_lut = "off";
+defparam \UART_RX|Selector6~1 .lut_mask = 64'h7F5F7F5F7F5F7F5F;
+defparam \UART_RX|Selector6~1 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|DV (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector6~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|DV~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|DV .is_wysiwyg = "true";
+defparam \UART_RX|DV .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector9~0 (
+// Equation(s):
+// \UART_TX|Selector9~0_combout  = (!\UART_TX|estado.Cleanup~q  & ((\UART_RX|DV~q ) # (\UART_TX|estado.Idle~q )))
+
+	.dataa(!\UART_TX|estado.Cleanup~q ),
+	.datab(!\UART_TX|estado.Idle~q ),
+	.datac(!\UART_RX|DV~q ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector9~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector9~0 .extended_lut = "off";
+defparam \UART_TX|Selector9~0 .lut_mask = 64'h2A2A2A2A2A2A2A2A;
+defparam \UART_TX|Selector9~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Idle (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector9~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Idle~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Idle .is_wysiwyg = "true";
+defparam \UART_TX|estado.Idle .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector5~0 (
+// Equation(s):
+// \UART_TX|Selector5~0_combout  = (\UART_TX|estado.Idle~q  & (!\UART_TX|Count [0] & ((!\UART_TX|Count [1]) # (!\UART_TX|Count [2]))))
+
+	.dataa(!\UART_TX|Count [1]),
+	.datab(!\UART_TX|Count [2]),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(!\UART_TX|Count [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector5~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector5~0 .extended_lut = "off";
+defparam \UART_TX|Selector5~0 .lut_mask = 64'h0E000E000E000E00;
+defparam \UART_TX|Selector5~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Count[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector5~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(!\UART_TX|estado.Cleanup~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Count[0] .is_wysiwyg = "true";
+defparam \UART_TX|Count[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector3~0 (
+// Equation(s):
+// \UART_TX|Selector3~0_combout  = (\UART_TX|estado.Idle~q  & ((!\UART_TX|Count [1] & (\UART_TX|Count [2])) # (\UART_TX|Count [1] & (!\UART_TX|Count [2] & \UART_TX|Count [0]))))
+
+	.dataa(!\UART_TX|Count [1]),
+	.datab(!\UART_TX|Count [2]),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(!\UART_TX|Count [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector3~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector3~0 .extended_lut = "off";
+defparam \UART_TX|Selector3~0 .lut_mask = 64'h0206020602060206;
+defparam \UART_TX|Selector3~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Count[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector3~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(!\UART_TX|estado.Cleanup~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Count[2] .is_wysiwyg = "true";
+defparam \UART_TX|Count[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector4~0 (
+// Equation(s):
+// \UART_TX|Selector4~0_combout  = (\UART_TX|estado.Idle~q  & ((!\UART_TX|Count [1] & ((\UART_TX|Count [0]))) # (\UART_TX|Count [1] & (!\UART_TX|Count [2] & !\UART_TX|Count [0]))))
+
+	.dataa(!\UART_TX|Count [1]),
+	.datab(!\UART_TX|Count [2]),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(!\UART_TX|Count [0]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector4~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector4~0 .extended_lut = "off";
+defparam \UART_TX|Selector4~0 .lut_mask = 64'h040A040A040A040A;
+defparam \UART_TX|Selector4~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Count[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector4~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(!\UART_TX|estado.Cleanup~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Count[1] .is_wysiwyg = "true";
+defparam \UART_TX|Count[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector10~0 (
+// Equation(s):
+// \UART_TX|Selector10~0_combout  = ( \UART_RX|DV~q  & ( (!\UART_TX|estado.Idle~q ) # ((\UART_TX|estado.Start_Bit~q  & ((!\UART_TX|Count [1]) # (!\UART_TX|Count [2])))) ) ) # ( !\UART_RX|DV~q  & ( (\UART_TX|estado.Start_Bit~q  & ((!\UART_TX|Count [1]) # 
+// (!\UART_TX|Count [2]))) ) )
+
+	.dataa(!\UART_TX|estado.Start_Bit~q ),
+	.datab(!\UART_TX|Count [1]),
+	.datac(!\UART_TX|Count [2]),
+	.datad(!\UART_TX|estado.Idle~q ),
+	.datae(!\UART_RX|DV~q ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector10~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector10~0 .extended_lut = "off";
+defparam \UART_TX|Selector10~0 .lut_mask = 64'h5454FF545454FF54;
+defparam \UART_TX|Selector10~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|estado.Start_Bit (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector10~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|estado.Start_Bit~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|estado.Start_Bit .is_wysiwyg = "true";
+defparam \UART_TX|estado.Start_Bit .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector0~0 (
+// Equation(s):
+// \UART_TX|Selector0~0_combout  = ( \UART_TX|estado.Stop_Bit~q  & ( (\UART_TX|estado.Start_Bit~q ) # (\UART_TX|TX_Active~q ) ) ) # ( !\UART_TX|estado.Stop_Bit~q  & ( ((\UART_TX|TX_Active~q  & ((\UART_TX|estado.Parity_Bit~q ) # (\UART_TX|estado.Send_Data~q 
+// )))) # (\UART_TX|estado.Start_Bit~q ) ) )
+
+	.dataa(!\UART_TX|TX_Active~q ),
+	.datab(!\UART_TX|estado.Start_Bit~q ),
+	.datac(!\UART_TX|estado.Send_Data~q ),
+	.datad(!\UART_TX|estado.Parity_Bit~q ),
+	.datae(!\UART_TX|estado.Stop_Bit~q ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector0~0 .extended_lut = "off";
+defparam \UART_TX|Selector0~0 .lut_mask = 64'h3777777737777777;
+defparam \UART_TX|Selector0~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Active (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector0~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Active~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Active .is_wysiwyg = "true";
+defparam \UART_TX|TX_Active .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector2~0 (
+// Equation(s):
+// \UART_TX|Selector2~0_combout  = (!\UART_TX|estado.Start_Bit~q  & (!\UART_TX|estado.Send_Data~q  & (!\UART_TX|estado.Parity_Bit~q  & !\UART_TX|estado.Stop_Bit~q )))
+
+	.dataa(!\UART_TX|estado.Start_Bit~q ),
+	.datab(!\UART_TX|estado.Send_Data~q ),
+	.datac(!\UART_TX|estado.Parity_Bit~q ),
+	.datad(!\UART_TX|estado.Stop_Bit~q ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector2~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector2~0 .extended_lut = "off";
+defparam \UART_TX|Selector2~0 .lut_mask = 64'h8000800080008000;
+defparam \UART_TX|Selector2~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector2~1 (
+// Equation(s):
+// \UART_TX|Selector2~1_combout  = (((\UART_TX|TX_Done_Internal~q  & !\UART_TX|Selector2~0_combout )) # (\UART_TX|estado~8_combout )) # (\UART_TX|estado.Cleanup~q )
+
+	.dataa(!\UART_TX|TX_Done_Internal~q ),
+	.datab(!\UART_TX|estado.Cleanup~q ),
+	.datac(!\UART_TX|estado~8_combout ),
+	.datad(!\UART_TX|Selector2~0_combout ),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector2~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector2~1 .extended_lut = "off";
+defparam \UART_TX|Selector2~1 .lut_mask = 64'h7F3F7F3F7F3F7F3F;
+defparam \UART_TX|Selector2~1 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Done_Internal (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector2~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Done_Internal~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Done_Internal .is_wysiwyg = "true";
+defparam \UART_TX|TX_Done_Internal .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~1 (
+// Equation(s):
+// \UART_RX|Decoder0~1_combout  = ( \UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (\UART_RX|Index [2] & !\UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~1 .extended_lut = "off";
+defparam \UART_RX|Decoder0~1 .lut_mask = 64'h0000010000000100;
+defparam \UART_RX|Decoder0~1 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector9~0 (
+// Equation(s):
+// \UART_RX|Selector9~0_combout  = ( \UART_RX|Decoder0~1_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [5])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~1_combout  & ( 
+// (\UART_RX|Byte [5] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [5]),
+	.datae(!\UART_RX|Decoder0~1_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector9~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector9~0 .extended_lut = "off";
+defparam \UART_RX|Selector9~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector9~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[5] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector9~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[5] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[5] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector10~1 (
+// Equation(s):
+// \UART_TX|Selector10~1_combout  = (!\UART_TX|estado.Idle~q  & \UART_RX|DV~q )
+
+	.dataa(!\UART_TX|estado.Idle~q ),
+	.datab(!\UART_RX|DV~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector10~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector10~1 .extended_lut = "off";
+defparam \UART_TX|Selector10~1 .lut_mask = 64'h2222222222222222;
+defparam \UART_TX|Selector10~1 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[5] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [5]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[5] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[5] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector7~0 (
+// Equation(s):
+// \UART_RX|Selector7~0_combout  = ( \UART_RX|Byte [7] & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q )) # (\UART_RX|estado.ReadByte~q  & (((!\UART_RX|Decoder0~0_combout ) # (\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Byte [7] & ( 
+// (\UART_RX|estado.ReadByte~q  & (\UART_RX|RX_Data~q  & \UART_RX|Decoder0~0_combout )) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Decoder0~0_combout ),
+	.datae(!\UART_RX|Byte [7]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector7~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector7~0 .extended_lut = "off";
+defparam \UART_RX|Selector7~0 .lut_mask = 64'h0003774700037747;
+defparam \UART_RX|Selector7~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[7] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector7~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[7] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[7] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[7] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [7]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[7] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[7] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~3 (
+// Equation(s):
+// \UART_RX|Decoder0~3_combout  = ( !\UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (\UART_RX|Index [2] & \UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~3_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~3 .extended_lut = "off";
+defparam \UART_RX|Decoder0~3 .lut_mask = 64'h0001000000010000;
+defparam \UART_RX|Decoder0~3 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector8~0 (
+// Equation(s):
+// \UART_RX|Selector8~0_combout  = ( \UART_RX|Decoder0~3_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [6])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~3_combout  & ( 
+// (\UART_RX|Byte [6] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [6]),
+	.datae(!\UART_RX|Decoder0~3_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector8~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector8~0 .extended_lut = "off";
+defparam \UART_RX|Selector8~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector8~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[6] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector8~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[6] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[6] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[6] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [6]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[6] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[6] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~4 (
+// Equation(s):
+// \UART_RX|Decoder0~4_combout  = ( \UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (!\UART_RX|Index [2] & !\UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~4 .extended_lut = "off";
+defparam \UART_RX|Decoder0~4 .lut_mask = 64'h0000100000001000;
+defparam \UART_RX|Decoder0~4 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector13~0 (
+// Equation(s):
+// \UART_RX|Selector13~0_combout  = ( \UART_RX|Decoder0~4_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [1])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~4_combout  & ( 
+// (\UART_RX|Byte [1] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [1]),
+	.datae(!\UART_RX|Decoder0~4_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector13~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector13~0 .extended_lut = "off";
+defparam \UART_RX|Selector13~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector13~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector13~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[1] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[1] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [1]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[1] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~5 (
+// Equation(s):
+// \UART_RX|Decoder0~5_combout  = ( \UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (!\UART_RX|Index [2] & \UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~5_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~5 .extended_lut = "off";
+defparam \UART_RX|Decoder0~5 .lut_mask = 64'h0000001000000010;
+defparam \UART_RX|Decoder0~5 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector11~0 (
+// Equation(s):
+// \UART_RX|Selector11~0_combout  = ( \UART_RX|Decoder0~5_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [3])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~5_combout  & ( 
+// (\UART_RX|Byte [3] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [3]),
+	.datae(!\UART_RX|Decoder0~5_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector11~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector11~0 .extended_lut = "off";
+defparam \UART_RX|Selector11~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector11~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[3] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector11~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[3] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[3] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[3] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [3]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[3] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[3] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~7 (
+// Equation(s):
+// \UART_RX|Decoder0~7_combout  = ( !\UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (!\UART_RX|Index [2] & \UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~7_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~7 .extended_lut = "off";
+defparam \UART_RX|Decoder0~7 .lut_mask = 64'h0010000000100000;
+defparam \UART_RX|Decoder0~7 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector12~0 (
+// Equation(s):
+// \UART_RX|Selector12~0_combout  = ( \UART_RX|Decoder0~7_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [2])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~7_combout  & ( 
+// (\UART_RX|Byte [2] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [2]),
+	.datae(!\UART_RX|Decoder0~7_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector12~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector12~0 .extended_lut = "off";
+defparam \UART_RX|Selector12~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector12~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector12~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[2] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[2] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [2]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[2] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~6 (
+// Equation(s):
+// \UART_RX|Decoder0~6_combout  = ( !\UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (!\UART_RX|Index [2] & !\UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~6_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~6 .extended_lut = "off";
+defparam \UART_RX|Decoder0~6 .lut_mask = 64'h1000000010000000;
+defparam \UART_RX|Decoder0~6 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector14~0 (
+// Equation(s):
+// \UART_RX|Selector14~0_combout  = ( \UART_RX|Decoder0~6_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [0])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~6_combout  & ( 
+// (\UART_RX|Byte [0] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [0]),
+	.datae(!\UART_RX|Decoder0~6_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector14~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector14~0 .extended_lut = "off";
+defparam \UART_RX|Selector14~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector14~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector14~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[0] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[0] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [0]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[0] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Mux0~4 (
+// Equation(s):
+// \UART_TX|Mux0~4_combout  = ( !\UART_TX|Index [1] & ( ((!\UART_TX|Index [0] & (((\UART_TX|TX_Data [0] & !\UART_TX|Index [2])))) # (\UART_TX|Index [0] & (((\UART_TX|Index [2])) # (\UART_TX|TX_Data [1])))) ) ) # ( \UART_TX|Index [1] & ( ((!\UART_TX|Index [0] 
+// & (((\UART_TX|TX_Data [2] & !\UART_TX|Index [2])))) # (\UART_TX|Index [0] & (((\UART_TX|Index [2])) # (\UART_TX|TX_Data [3])))) ) )
+
+	.dataa(!\UART_TX|TX_Data [1]),
+	.datab(!\UART_TX|TX_Data [3]),
+	.datac(!\UART_TX|TX_Data [2]),
+	.datad(!\UART_TX|Index [0]),
+	.datae(!\UART_TX|Index [1]),
+	.dataf(!\UART_TX|Index [2]),
+	.datag(!\UART_TX|TX_Data [0]),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Mux0~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Mux0~4 .extended_lut = "on";
+defparam \UART_TX|Mux0~4 .lut_mask = 64'h0F550F3300FF00FF;
+defparam \UART_TX|Mux0~4 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Decoder0~2 (
+// Equation(s):
+// \UART_RX|Decoder0~2_combout  = ( !\UART_RX|Index [0] & ( (\UART_RX|Count [1] & (\UART_RX|Count [2] & (\UART_RX|Index [2] & !\UART_RX|Index [1]))) ) )
+
+	.dataa(!\UART_RX|Count [1]),
+	.datab(!\UART_RX|Count [2]),
+	.datac(!\UART_RX|Index [2]),
+	.datad(!\UART_RX|Index [1]),
+	.datae(!\UART_RX|Index [0]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Decoder0~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Decoder0~2 .extended_lut = "off";
+defparam \UART_RX|Decoder0~2 .lut_mask = 64'h0100000001000000;
+defparam \UART_RX|Decoder0~2 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Selector10~0 (
+// Equation(s):
+// \UART_RX|Selector10~0_combout  = ( \UART_RX|Decoder0~2_combout  & ( (!\UART_RX|estado.ReadByte~q  & (\UART_RX|estado.Idle~q  & ((\UART_RX|Byte [4])))) # (\UART_RX|estado.ReadByte~q  & (((\UART_RX|RX_Data~q )))) ) ) # ( !\UART_RX|Decoder0~2_combout  & ( 
+// (\UART_RX|Byte [4] & ((\UART_RX|estado.ReadByte~q ) # (\UART_RX|estado.Idle~q ))) ) )
+
+	.dataa(!\UART_RX|estado.Idle~q ),
+	.datab(!\UART_RX|estado.ReadByte~q ),
+	.datac(!\UART_RX|RX_Data~q ),
+	.datad(!\UART_RX|Byte [4]),
+	.datae(!\UART_RX|Decoder0~2_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Selector10~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Selector10~0 .extended_lut = "off";
+defparam \UART_RX|Selector10~0 .lut_mask = 64'h0077034700770347;
+defparam \UART_RX|Selector10~0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Byte[4] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Selector10~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Byte [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Byte[4] .is_wysiwyg = "true";
+defparam \UART_RX|Byte[4] .power_up = "low";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Data[4] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Byte [4]),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\UART_TX|Selector10~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Data [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Data[4] .is_wysiwyg = "true";
+defparam \UART_TX|TX_Data[4] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Mux0~0 (
+// Equation(s):
+// \UART_TX|Mux0~0_combout  = ( !\UART_TX|Index [1] & ( ((!\UART_TX|Index [2] & (((\UART_TX|Mux0~4_combout )))) # (\UART_TX|Index [2] & ((!\UART_TX|Mux0~4_combout  & ((\UART_TX|TX_Data [4]))) # (\UART_TX|Mux0~4_combout  & (\UART_TX|TX_Data [5]))))) ) ) # ( 
+// \UART_TX|Index [1] & ( ((!\UART_TX|Index [2] & (((\UART_TX|Mux0~4_combout )))) # (\UART_TX|Index [2] & ((!\UART_TX|Mux0~4_combout  & ((\UART_TX|TX_Data [6]))) # (\UART_TX|Mux0~4_combout  & (\UART_TX|TX_Data [7]))))) ) )
+
+	.dataa(!\UART_TX|TX_Data [5]),
+	.datab(!\UART_TX|TX_Data [7]),
+	.datac(!\UART_TX|TX_Data [6]),
+	.datad(!\UART_TX|Index [2]),
+	.datae(!\UART_TX|Index [1]),
+	.dataf(!\UART_TX|Mux0~4_combout ),
+	.datag(!\UART_TX|TX_Data [4]),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Mux0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Mux0~0 .extended_lut = "on";
+defparam \UART_TX|Mux0~0 .lut_mask = 64'h000F000FFF55FF33;
+defparam \UART_TX|Mux0~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector1~0 (
+// Equation(s):
+// \UART_TX|Selector1~0_combout  = (\UART_TX|estado.Idle~q  & ((!\UART_TX|TX_Serial~q ) # (!\UART_TX|estado.Cleanup~q )))
+
+	.dataa(!\UART_TX|TX_Serial~q ),
+	.datab(!\UART_TX|estado.Cleanup~q ),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector1~0 .extended_lut = "off";
+defparam \UART_TX|Selector1~0 .lut_mask = 64'h0E0E0E0E0E0E0E0E;
+defparam \UART_TX|Selector1~0 .shared_arith = "off";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Selector1~1 (
+// Equation(s):
+// \UART_TX|Selector1~1_combout  = ( \UART_TX|Selector1~0_combout  & ( (((\UART_TX|estado.Send_Data~q  & \UART_TX|Mux0~0_combout )) # (\UART_TX|estado.Stop_Bit~q )) # (\UART_TX|estado.Parity_Bit~q ) ) ) # ( !\UART_TX|Selector1~0_combout  )
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|estado.Parity_Bit~q ),
+	.datac(!\UART_TX|estado.Stop_Bit~q ),
+	.datad(!\UART_TX|Mux0~0_combout ),
+	.datae(!\UART_TX|Selector1~0_combout ),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Selector1~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Selector1~1 .extended_lut = "off";
+defparam \UART_TX|Selector1~1 .lut_mask = 64'hFFFF3F7FFFFF3F7F;
+defparam \UART_TX|Selector1~1 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|TX_Serial (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Selector1~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|TX_Serial~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|TX_Serial .is_wysiwyg = "true";
+defparam \UART_TX|TX_Serial .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|WideOr0 (
+// Equation(s):
+// \UART_RX|WideOr0~combout  = (!\UART_RX|estado.Stop~q  & (\UART_RX|estado.Idle~q  & !\UART_RX|estado.ReadByte~q ))
+
+	.dataa(!\UART_RX|estado.Stop~q ),
+	.datab(!\UART_RX|estado.Idle~q ),
+	.datac(!\UART_RX|estado.ReadByte~q ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|WideOr0~combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|WideOr0 .extended_lut = "off";
+defparam \UART_RX|WideOr0 .lut_mask = 64'h2020202020202020;
+defparam \UART_RX|WideOr0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Current[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|WideOr0~combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Current [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Current[0] .is_wysiwyg = "true";
+defparam \UART_RX|Current[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Current~4 (
+// Equation(s):
+// \UART_RX|Current~4_combout  = (\UART_RX|estado.Parity~q ) # (\UART_RX|estado.ReadByte~q )
+
+	.dataa(!\UART_RX|estado.ReadByte~q ),
+	.datab(!\UART_RX|estado.Parity~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Current~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Current~4 .extended_lut = "off";
+defparam \UART_RX|Current~4 .lut_mask = 64'h7777777777777777;
+defparam \UART_RX|Current~4 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Current[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Current~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Current [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Current[1] .is_wysiwyg = "true";
+defparam \UART_RX|Current[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_RX|Current~5 (
+// Equation(s):
+// \UART_RX|Current~5_combout  = (\UART_RX|estado.Cleanup~q ) # (\UART_RX|estado.Stop~q )
+
+	.dataa(!\UART_RX|estado.Stop~q ),
+	.datab(!\UART_RX|estado.Cleanup~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_RX|Current~5_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_RX|Current~5 .extended_lut = "off";
+defparam \UART_RX|Current~5 .lut_mask = 64'h7777777777777777;
+defparam \UART_RX|Current~5 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_RX|Current[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_RX|Current~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_RX|Current [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_RX|Current[2] .is_wysiwyg = "true";
+defparam \UART_RX|Current[2] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|WideOr0 (
+// Equation(s):
+// \UART_TX|WideOr0~combout  = (!\UART_TX|estado.Send_Data~q  & (!\UART_TX|estado.Stop_Bit~q  & \UART_TX|estado.Idle~q ))
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|estado.Stop_Bit~q ),
+	.datac(!\UART_TX|estado.Idle~q ),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|WideOr0~combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|WideOr0 .extended_lut = "off";
+defparam \UART_TX|WideOr0 .lut_mask = 64'h0808080808080808;
+defparam \UART_TX|WideOr0 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Current[0] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|WideOr0~combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Current [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Current[0] .is_wysiwyg = "true";
+defparam \UART_TX|Current[0] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Current~4 (
+// Equation(s):
+// \UART_TX|Current~4_combout  = (\UART_TX|estado.Parity_Bit~q ) # (\UART_TX|estado.Send_Data~q )
+
+	.dataa(!\UART_TX|estado.Send_Data~q ),
+	.datab(!\UART_TX|estado.Parity_Bit~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Current~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Current~4 .extended_lut = "off";
+defparam \UART_TX|Current~4 .lut_mask = 64'h7777777777777777;
+defparam \UART_TX|Current~4 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Current[1] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Current~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Current [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Current[1] .is_wysiwyg = "true";
+defparam \UART_TX|Current[1] .power_up = "low";
+// synopsys translate_on
+
+cyclonev_lcell_comb \UART_TX|Current~5 (
+// Equation(s):
+// \UART_TX|Current~5_combout  = (\UART_TX|estado.Cleanup~q ) # (\UART_TX|estado.Stop_Bit~q )
+
+	.dataa(!\UART_TX|estado.Stop_Bit~q ),
+	.datab(!\UART_TX|estado.Cleanup~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\UART_TX|Current~5_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \UART_TX|Current~5 .extended_lut = "off";
+defparam \UART_TX|Current~5 .lut_mask = 64'h7777777777777777;
+defparam \UART_TX|Current~5 .shared_arith = "off";
+// synopsys translate_on
+
+dffeas \UART_TX|Current[2] (
+	.clk(\clk~input_o ),
+	.d(\UART_TX|Current~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\UART_TX|Current [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \UART_TX|Current[2] .is_wysiwyg = "true";
+defparam \UART_TX|Current[2] .power_up = "low";
+// synopsys translate_on
+
+assign Transmission_On = \Transmission_On~output_o ;
+
+assign Transmission_Done = \Transmission_Done~output_o ;
+
+assign Transmission_Bit = \Transmission_Bit~output_o ;
+
+assign Reciever_Current_State[0] = \Reciever_Current_State[0]~output_o ;
+
+assign Reciever_Current_State[1] = \Reciever_Current_State[1]~output_o ;
+
+assign Reciever_Current_State[2] = \Reciever_Current_State[2]~output_o ;
+
+assign Reciever_Current_State[3] = \Reciever_Current_State[3]~output_o ;
+
+assign Reciever_Current_State[4] = \Reciever_Current_State[4]~output_o ;
+
+assign Reciever_Current_State[5] = \Reciever_Current_State[5]~output_o ;
+
+assign Reciever_Current_State[6] = \Reciever_Current_State[6]~output_o ;
+
+assign Reciever_Current_State[7] = \Reciever_Current_State[7]~output_o ;
+
+assign Reciever_Current_State[8] = \Reciever_Current_State[8]~output_o ;
+
+assign Reciever_Current_State[9] = \Reciever_Current_State[9]~output_o ;
+
+assign Reciever_Current_State[10] = \Reciever_Current_State[10]~output_o ;
+
+assign Reciever_Current_State[11] = \Reciever_Current_State[11]~output_o ;
+
+assign Reciever_Current_State[12] = \Reciever_Current_State[12]~output_o ;
+
+assign Reciever_Current_State[13] = \Reciever_Current_State[13]~output_o ;
+
+assign Reciever_Current_State[14] = \Reciever_Current_State[14]~output_o ;
+
+assign Reciever_Current_State[15] = \Reciever_Current_State[15]~output_o ;
+
+assign Reciever_Current_State[16] = \Reciever_Current_State[16]~output_o ;
+
+assign Reciever_Current_State[17] = \Reciever_Current_State[17]~output_o ;
+
+assign Reciever_Current_State[18] = \Reciever_Current_State[18]~output_o ;
+
+assign Reciever_Current_State[19] = \Reciever_Current_State[19]~output_o ;
+
+assign Reciever_Current_State[20] = \Reciever_Current_State[20]~output_o ;
+
+assign Reciever_Current_State[21] = \Reciever_Current_State[21]~output_o ;
+
+assign Reciever_Current_State[22] = \Reciever_Current_State[22]~output_o ;
+
+assign Reciever_Current_State[23] = \Reciever_Current_State[23]~output_o ;
+
+assign Reciever_Current_State[24] = \Reciever_Current_State[24]~output_o ;
+
+assign Reciever_Current_State[25] = \Reciever_Current_State[25]~output_o ;
+
+assign Reciever_Current_State[26] = \Reciever_Current_State[26]~output_o ;
+
+assign Reciever_Current_State[27] = \Reciever_Current_State[27]~output_o ;
+
+assign Reciever_Current_State[28] = \Reciever_Current_State[28]~output_o ;
+
+assign Reciever_Current_State[29] = \Reciever_Current_State[29]~output_o ;
+
+assign Reciever_Current_State[30] = \Reciever_Current_State[30]~output_o ;
+
+assign Reciever_Current_State[31] = \Reciever_Current_State[31]~output_o ;
+
+assign Transmission_Current_State[0] = \Transmission_Current_State[0]~output_o ;
+
+assign Transmission_Current_State[1] = \Transmission_Current_State[1]~output_o ;
+
+assign Transmission_Current_State[2] = \Transmission_Current_State[2]~output_o ;
+
+assign Transmission_Current_State[3] = \Transmission_Current_State[3]~output_o ;
+
+assign Transmission_Current_State[4] = \Transmission_Current_State[4]~output_o ;
+
+assign Transmission_Current_State[5] = \Transmission_Current_State[5]~output_o ;
+
+assign Transmission_Current_State[6] = \Transmission_Current_State[6]~output_o ;
+
+assign Transmission_Current_State[7] = \Transmission_Current_State[7]~output_o ;
+
+assign Transmission_Current_State[8] = \Transmission_Current_State[8]~output_o ;
+
+assign Transmission_Current_State[9] = \Transmission_Current_State[9]~output_o ;
+
+assign Transmission_Current_State[10] = \Transmission_Current_State[10]~output_o ;
+
+assign Transmission_Current_State[11] = \Transmission_Current_State[11]~output_o ;
+
+assign Transmission_Current_State[12] = \Transmission_Current_State[12]~output_o ;
+
+assign Transmission_Current_State[13] = \Transmission_Current_State[13]~output_o ;
+
+assign Transmission_Current_State[14] = \Transmission_Current_State[14]~output_o ;
+
+assign Transmission_Current_State[15] = \Transmission_Current_State[15]~output_o ;
+
+assign Transmission_Current_State[16] = \Transmission_Current_State[16]~output_o ;
+
+assign Transmission_Current_State[17] = \Transmission_Current_State[17]~output_o ;
+
+assign Transmission_Current_State[18] = \Transmission_Current_State[18]~output_o ;
+
+assign Transmission_Current_State[19] = \Transmission_Current_State[19]~output_o ;
+
+assign Transmission_Current_State[20] = \Transmission_Current_State[20]~output_o ;
+
+assign Transmission_Current_State[21] = \Transmission_Current_State[21]~output_o ;
+
+assign Transmission_Current_State[22] = \Transmission_Current_State[22]~output_o ;
+
+assign Transmission_Current_State[23] = \Transmission_Current_State[23]~output_o ;
+
+assign Transmission_Current_State[24] = \Transmission_Current_State[24]~output_o ;
+
+assign Transmission_Current_State[25] = \Transmission_Current_State[25]~output_o ;
+
+assign Transmission_Current_State[26] = \Transmission_Current_State[26]~output_o ;
+
+assign Transmission_Current_State[27] = \Transmission_Current_State[27]~output_o ;
+
+assign Transmission_Current_State[28] = \Transmission_Current_State[28]~output_o ;
+
+assign Transmission_Current_State[29] = \Transmission_Current_State[29]~output_o ;
+
+assign Transmission_Current_State[30] = \Transmission_Current_State[30]~output_o ;
+
+assign Transmission_Current_State[31] = \Transmission_Current_State[31]~output_o ;
+
+endmodule
