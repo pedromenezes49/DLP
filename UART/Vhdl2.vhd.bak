@@ -1,0 +1,6 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity baud_generator is port(
+	clk: in std_logic;
+);
