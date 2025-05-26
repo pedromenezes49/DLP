@@ -1,0 +1,22 @@
+# Ambiente Virtual Python (venv)
+/python_serial/.venv
+# Ou o nome que você deu para sua venv, por exemplo:
+# /venv/
+# /.venv/
+
+# Arquivos de bytecode Python compilados
+__pycache__/
+*.py[cod]
+
+# Arquivos de configuração de IDEs comuns
+.vscode/
+.idea/
+
+# Arquivos de dependências gerados (se você usar pip freeze > requirements.txt,
+# não ignore requirements.txt, mas sim os arquivos baixados se não estiverem na venv)
+# Geralmente, a venv já cuida disso, mas é bom saber.
+
+# Outros arquivos específicos do sistema operacional ou temporários
+.DS_Store
+Thumbs.db
+*.log
