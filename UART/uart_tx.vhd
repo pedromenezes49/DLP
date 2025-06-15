@@ -1,6 +1,3 @@
--- Conteúdo para o arquivo: uart_tx.vhd
--- Seu código original, que já funciona.
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
