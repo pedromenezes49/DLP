@@ -1,107 +1,92 @@
 import serial
+import serial.tools.list_ports
 import time
 
-# --- Configurações da Porta Serial ---
-# Exemplos: 'COM3' no Windows
-SERIAL_PORT = 'COM3'  # Altere para a porta correta do seu sistema
+# O "cérebro" do nosso script. Este dicionário mapeia o valor hexadecimal
+# recebido para a mensagem que será exibida.
+BUTTON_MAP = {
+    # Valores que você forneceu:
+    0x78: "Nenhum botão pressionado",
+    0x3C: "KEY0",
+    0x79: "KEY1",
+    0x7A: "KEY2",
+    0x7C: "KEY3",
+    0x1E: "KEY0 + KEY1",
+    0x3D: "KEY0 + KEY2",
+    0x3E: "KEY0 + KEY3",
+    0x7B: "KEY1 + KEY2",
+    0x7D: "KEY1 + KEY3",
+    0x7E: "KEY2 + KEY3",
+    0x0F: "KEY0 + KEY1 + KEY2",
+    0x1F: "KEY0 + KEY1 + KEY3",
+    0x3F: "KEY0 + KEY2 + KEY3",
+    0x7F: "KEY1 + KEY2 + KEY3", # Note: Adicionei este que faltava, 01111111
+    0x00: "KEY0 + KEY1 + KEY2 + KEY3"
+}
 
-# Usaremos o padrão mais próximo 460800
-BAUD_RATE = 460800
-# BAUD_RATE = 446428
-
-TIMEOUT_SERIAL = 1  # Tempo limite para leitura em segundos
-
-# --- Estados Simples para o Script Python (Opcional, mas ajuda a entender) ---
-STATE_IDLE = 0
-STATE_WAITING_ECHO = 1
-current_state = STATE_IDLE
-sent_byte = None
+def list_serial_ports():
+    """Lista as portas seriais disponíveis no sistema."""
+    ports = serial.tools.list_ports.comports()
+    if not ports:
+        print("Nenhuma porta serial encontrada!")
+        return None
+    
+    print("Portas seriais disponíveis:")
+    for i, port in enumerate(ports):
+        print(f"  {i}: {port.device} - {port.description}")
+    return ports
 
 def main():
-    global current_state
-    global sent_byte
-
-    try:
-        # Abre a porta serial
-        ser = serial.Serial(
-            port=SERIAL_PORT,
-            baudrate=BAUD_RATE,
-            bytesize=serial.EIGHTBITS,
-            parity=serial.PARITY_MARK,  # Transmissor envia '1', Receptor espera '1'
-            stopbits=serial.STOPBITS_ONE,
-            timeout=TIMEOUT_SERIAL
-        )
-        print(f"Porta serial {SERIAL_PORT} aberta com sucesso a {BAUD_RATE} bps.")
-        print("Configurações: 8 data bits, Paridade de Marca (Mark Parity), 1 Stop bit.")
-        print("O FPGA está configurado para ecoar os bytes recebidos.")
-        print("Digite um caractere para enviar (ou 'quit' para sair).")
-
-    except serial.SerialException as e:
-        print(f"Erro ao abrir a porta serial {SERIAL_PORT}: {e}")
-        print("Verifique se a porta está correta e não está em uso por outro programa.")
-        print(f"A taxa de baud configurada é {BAUD_RATE}. Se você usou 446428 e falhou, tente 460800.")
+    """Função principal para receber e decodificar os estados dos botões."""
+    
+    ports = list_serial_ports()
+    if not ports:
         return
 
+    port_index_str = input("Digite o número da porta que deseja usar: ")
     try:
-        current_state = STATE_IDLE
+        port_index = int(port_index_str)
+        selected_port = ports[port_index].device
+    except (ValueError, IndexError):
+        print("Entrada inválida.")
+        return
+
+    # BAUD RATE configurada para 115200
+    BAUD_RATE = 115200
+    
+    print(f"\nIniciando monitor na porta {selected_port} a {BAUD_RATE} baud...")
+    print("Pressione os botões na FPGA para ver o estado.")
+    print("Pressione Ctrl+C para sair.")
+
+    try:
+        ser = serial.Serial(selected_port, BAUD_RATE, timeout=1)
+        
+        last_received_value = None
+
         while True:
-            if current_state == STATE_IDLE:
-                user_input = input("PC Envia > ")
+            data_byte = ser.read(1)
+            
+            if data_byte: # Se um byte foi realmente recebido
+                current_value = int.from_bytes(data_byte, "big")
 
-                if user_input.lower() == 'quit':
-                    print("Saindo...")
-                    break
+                # Só imprime se o estado mudou
+                if current_value != last_received_value:
+                    # Procura o valor no dicionário. Se não encontrar, avisa que é desconhecido.
+                    message = BUTTON_MAP.get(current_value, f"VALOR DESCONHECIDO: 0x{current_value:02X}")
+                    print(f"Estado: {message}")
+                    
+                    last_received_value = current_value
+            
+            time.sleep(0.01)
 
-                if len(user_input) > 0:
-                    # Pega o primeiro caractere e converte para byte
-                    char_to_send = user_input[0]
-                    byte_to_send = char_to_send.encode('utf-8')
-
-                    # Limita a um byte, se o usuário digitar mais
-                    if len(byte_to_send) > 1:
-                        print(f"Nota: Enviando o primeiro caractere '{char_to_send}' como byte: {byte_to_send[0]:#04x} ({byte_to_send[0]})")
-                        sent_byte = bytes([byte_to_send[0]]) # Garante que é um objeto bytes de um único byte
-                    else:
-                        sent_byte = byte_to_send
-                        print(f"PC: Enviando byte: {sent_byte.hex()} ('{char_to_send}')")
-
-
-                    if sent_byte: # Confirma que temos algo para enviar
-                        ser.write(sent_byte)
-                        current_state = STATE_WAITING_ECHO
-                else:
-                    print("Por favor, digite um caractere.")
-
-            elif current_state == STATE_WAITING_ECHO:
-                # Tenta ler o eco da FPGA
-                received_byte = ser.read(1) # Espera receber 1 byte
-
-                if received_byte:
-                    print(f"FPGA Ecoou < {received_byte.hex()} ('{received_byte.decode('utf-8', errors='replace')}')")
-                    if received_byte == sent_byte:
-                        print("Eco CORRETO!")
-                    else:
-                        print(f"Eco INCORRETO! Esperado: {sent_byte.hex()}, Recebido: {received_byte.hex()}")
-                    current_state = STATE_IDLE
-                    sent_byte = None
-                elif ser.timeout > 0 and sent_byte: # Timeout ocorreu e estávamos esperando um eco
-                    print("FPGA: Timeout! Nenhum eco recebido.")
-                    current_state = STATE_IDLE # Volta para idle para tentar enviar novamente
-                    sent_byte = None
-                # Se ser.timeout for 0 e nada for lido, received_byte será b''
-                # e o loop continua, o que é bom para non-blocking.
-                # Mas com timeout > 0, se nada for lido, é um timeout.
-            # Pequena pausa para não sobrecarregar o CPU, opcional
-            # time.sleep(0.01)
-
+    except serial.SerialException as e:
+        print(f"\nERRO: Não foi possível abrir a porta serial: {e}")
     except KeyboardInterrupt:
-        print("\nInterrupção pelo usuário. Fechando porta serial.")
-    except Exception as e:
-        print(f"Ocorreu um erro: {e}")
+        print("\n\nPrograma encerrado.")
     finally:
         if 'ser' in locals() and ser.is_open:
             ser.close()
-            print(f"Porta serial {SERIAL_PORT} fechada.")
+            print("Porta serial fechada.")
 
 if __name__ == "__main__":
     main()

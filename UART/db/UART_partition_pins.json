@@ -4,47 +4,31 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Transmission_On",
+					"name" : "o_uart_tx",
 					"strict" : false
 				},
 				{
-					"name" : "Transmission_Done",
+					"name" : "i_clk_50mhz",
 					"strict" : false
 				},
 				{
-					"name" : "Transmission_Bit",
+					"name" : "i_reset_n",
 					"strict" : false
 				},
 				{
-					"name" : "Reciever_Current_State[0]",
+					"name" : "i_buttons[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Reciever_Current_State[1]",
+					"name" : "i_buttons[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Reciever_Current_State[2]",
+					"name" : "i_buttons[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Transmission_Current_State[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Transmission_Current_State[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Transmission_Current_State[2]",
-					"strict" : false
-				},
-				{
-					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "input_bit",
+					"name" : "i_buttons[1]",
 					"strict" : false
 				}
 			]

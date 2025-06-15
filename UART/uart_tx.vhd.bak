@@ -1,0 +1,117 @@
+-- uart_tx.vhd
+-- Módulo genérico para transmissão de dados no padrão UART (8-N-1)
+-- 8 bits de dados, sem paridade, 1 stop bit.
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity uart_tx is
+    generic (
+        G_CLK_FREQUENCY : integer := 50_000_000; -- Frequência do clock de entrada em Hz (50 MHz)
+        G_BAUD_RATE     : integer := 9600         -- Velocidade de comunicação em bauds
+    );
+    port (
+        -- Entradas do sistema
+        i_clk        : in std_logic; -- Clock principal
+        i_rst        : in std_logic; -- Reset assíncrono (ativo em '1')
+        
+        -- Interface de dados
+        i_data_to_send : in std_logic_vector(7 downto 0); -- Byte a ser transmitido
+        i_start_tx     : in std_logic; -- Pulso de 1 ciclo de clock para iniciar a transmissão
+        
+        -- Saídas
+        o_tx_pin       : out std_logic; -- Pino de transmissão serial
+        o_tx_busy      : out std_logic  -- Sinal indica que uma transmissão está em andamento
+    );
+end entity uart_tx;
+
+architecture rtl of uart_tx is
+
+    -- Constante para calcular quantos ciclos de clock cabem em um período de bit
+    -- Ex: (50,000,000 Hz / 9600 baud) = 5208.33. Usamos 5208.
+    constant C_CLKS_PER_BIT : integer := G_CLK_FREQUENCY / G_BAUD_RATE;
+
+    -- Máquina de estados para controlar o processo de transmissão
+    type t_state is (S_IDLE, S_START_BIT, S_DATA_BITS, S_STOP_BIT);
+    signal r_state : t_state := S_IDLE;
+
+    -- Registradores internos
+    signal r_clk_counter : integer range 0 to C_CLKS_PER_BIT - 1 := 0;
+    signal r_bit_index   : integer range 0 to 7 := 0;
+    signal r_tx_data     : std_logic_vector(7 downto 0) := (others => '0');
+    signal r_tx_busy     : std_logic := '0';
+
+begin
+
+    -- O pino de saída o_tx_pin é '1' (idle) quando não está ativamente transmitindo um '0'.
+    o_tx_pin <= '1' when r_state = S_IDLE else
+                '0' when r_state = S_START_BIT else
+                r_tx_data(0) when r_state = S_DATA_BITS else
+                '1'; -- Stop bit
+
+    o_tx_busy <= r_tx_busy;
+
+    -- Processo principal da máquina de estados
+    process(i_clk, i_rst)
+    begin
+        if i_rst = '1' then
+            -- Reset do sistema
+            r_state       <= S_IDLE;
+            r_clk_counter <= 0;
+            r_bit_index   <= 0;
+            r_tx_busy     <= '0';
+            r_tx_data     <= (others => '0');
+
+        elsif rising_edge(i_clk) then
+            case r_state is
+                
+                -- Estado Ocioso: Aguardando um sinal para iniciar a transmissão
+                when S_IDLE =>
+                    r_tx_busy <= '0';
+                    if i_start_tx = '1' then
+                        r_state       <= S_START_BIT;
+                        r_tx_data     <= i_data_to_send; -- Carrega o dado a ser enviado
+                        r_clk_counter <= 0;
+                        r_tx_busy     <= '1';
+                    end if;
+
+                -- Estado Start Bit: Envia o bit de início ('0')
+                when S_START_BIT =>
+                    if r_clk_counter < C_CLKS_PER_BIT - 1 then
+                        r_clk_counter <= r_clk_counter + 1;
+                    else
+                        r_clk_counter <= 0;
+                        r_bit_index   <= 0;
+                        r_state       <= S_DATA_BITS;
+                    end if;
+
+                -- Estado Data Bits: Envia os 8 bits de dados, do LSB ao MSB
+                when S_DATA_BITS =>
+                    if r_clk_counter < C_CLKS_PER_BIT - 1 then
+                        r_clk_counter <= r_clk_counter + 1;
+                    else
+                        r_clk_counter <= 0;
+                        if r_bit_index < 7 then
+                            r_bit_index <= r_bit_index + 1;
+                            -- Desloca os dados para que o próximo bit (LSB) esteja pronto
+                            r_tx_data <= '0' & r_tx_data(7 downto 1);
+                        else
+                            r_state <= S_STOP_BIT;
+                        end if;
+                    end if;
+                    
+                -- Estado Stop Bit: Envia o bit de parada ('1')
+                when S_STOP_BIT =>
+                    if r_clk_counter < C_CLKS_PER_BIT - 1 then
+                        r_clk_counter <= r_clk_counter + 1;
+                    else
+                        r_clk_counter <= 0;
+                        r_state       <= S_IDLE; -- Retorna ao estado ocioso
+                    end if;
+
+            end case;
+        end if;
+    end process;
+
+end architecture rtl;

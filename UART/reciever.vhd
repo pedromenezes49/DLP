@@ -4,7 +4,8 @@ use ieee.numeric_std.all;
 
 entity reciever is
 	generic(
-		baud : integer := 7 -- 50000000/(460800*16), baud é a duração do bit
+	   CLK_FREQ  : integer := 50000000;  -- frequência do clock em Hz
+	   BAUD_RATE : integer := 115200     -- baudrate UART
 	);
 	port(
 		clk       		  : in  std_logic;
@@ -15,6 +16,8 @@ entity reciever is
 	);
 end reciever;
 architecture behaviour of reciever is
+
+	constant baud : integer := CLK_FREQ / BAUD_RATE;
 -- State Machine
 	type state is(Idle, Start, ReadByte, Parity, Stop, Cleanup);
 	signal estado            : state 								:= Idle;

@@ -1,18 +1,7 @@
 
-State Machine - |UART|transmissor:UART_TX|estado
-Name estado.Cleanup estado.Stop_Bit estado.Parity_Bit estado.Send_Data estado.Start_Bit estado.Idle 
-estado.Idle 0 0 0 0 0 0 
-estado.Start_Bit 0 0 0 0 1 1 
-estado.Send_Data 0 0 0 1 0 1 
-estado.Parity_Bit 0 0 1 0 0 1 
-estado.Stop_Bit 0 1 0 0 0 1 
-estado.Cleanup 1 0 0 0 0 1 
-
-State Machine - |UART|reciever:UART_RX|estado
-Name estado.Cleanup estado.Stop estado.Parity estado.ReadByte estado.Start estado.Idle 
-estado.Idle 0 0 0 0 0 0 
-estado.Start 0 0 0 0 1 1 
-estado.ReadByte 0 0 0 1 0 1 
-estado.Parity 0 0 1 0 0 1 
-estado.Stop 0 1 0 0 0 1 
-estado.Cleanup 1 0 0 0 0 1 
+State Machine - |UART|uart_tx:uart_tx_inst|state
+Name state.STOP state.DATA state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.DATA 0 1 0 1 
+state.STOP 1 0 0 1 
