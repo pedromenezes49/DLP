@@ -8,26 +8,26 @@ entity uart_tx is
         BAUD_RATE : integer := 115200
     );
     port (
-        clk      : in  std_logic;
+        clk      : in  std_logic; 
         rst      : in  std_logic;
-        tx_start : in  std_logic;
-        data_in  : in  std_logic_vector(7 downto 0);
-        tx       : out std_logic;
-        busy     : out std_logic;
-        done     : out std_logic
+        tx_start : in  std_logic; -- comando para iniciar transmissão
+        data_in  : in  std_logic_vector(7 downto 0); -- dado de 8 bits a ser transmitido
+        tx       : out std_logic; -- saída serial.
+        busy     : out std_logic; -- indica transmissão em andamento.
+        done     : out std_logic -- sinaliza fim da transmissão.
     );
 end uart_tx;
 
 architecture Behavioral of uart_tx is
-    constant CLKS_PER_BIT : integer := CLK_FREQ / BAUD_RATE;
+    constant CLKS_PER_BIT : integer := CLK_FREQ / BAUD_RATE; -- Número de ciclos de clock para cada bit transmitido.
     type state_type is (IDLE, START, DATA, STOP);
-    signal state : state_type := IDLE;
-    signal clk_cnt : integer range 0 to CLKS_PER_BIT-1 := 0;
-    signal bit_idx : integer range 0 to 7 := 0;
-    signal tx_shift_reg : std_logic_vector(7 downto 0) := (others => '0');
-    signal tx_reg : std_logic := '1';
-    signal busy_reg : std_logic := '0';
-    signal done_reg : std_logic := '0';
+    signal state : state_type := IDLE; -- guarda o estado atual.
+    signal clk_cnt : integer range 0 to CLKS_PER_BIT-1 := 0; -- contador de ciclos para cada bit.
+    signal bit_idx : integer range 0 to 7 := 0; -- índice do bit atual sendo transmitido.
+    signal tx_shift_reg : std_logic_vector(7 downto 0) := (others => '0'); -- registrador de deslocamento para os bits.
+    signal tx_reg : std_logic := '1'; -- armazena o valor da saída serial.
+    signal busy_reg : std_logic := '0'; -- flag de status.
+    signal done_reg : std_logic := '0'; -- flag de status.
 begin
     process(clk, rst)
     begin
